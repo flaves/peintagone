@@ -1,1 +1,1 @@
-# Peintagone Center Namur
+# Peintagone center Namur
