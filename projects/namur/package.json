@@ -1,7 +1,7 @@
 {
-  "name": "peintagone-namur",
+  "name": "namur",
   "private": true,
-  "description": "Peintagone Center Namur",
+  "description": "Peintagone Namur website",
   "version": "0.1.0",
   "author": "Sebastien Crepin <sebastien@flav.es>",
   "dependencies": {

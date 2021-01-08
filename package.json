@@ -13,8 +13,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "namur-develop": "yarn workspace peintagone-namur develop",
-    "namur-build": "yarn workspace peintagone-namur build",
+    "namur-develop": "yarn workspace namur develop",
+    "namur-build": "yarn workspace namur build",
+    "website-develop": "yarn workspace website develop",
+    "website-build": "yarn workspace website build",
     "update": "ncu -u"
   },
   "repository": {
