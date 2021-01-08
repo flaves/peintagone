@@ -1,0 +1,24 @@
+{
+  "name": "peintagone",
+  "private": true,
+  "description": "Peintagone workspace",
+  "version": "0.1.0",
+  "author": "Sebastien Crepin <sebastien@flav.es>",
+  "devDependencies": {
+    "npm-check-updates": "^10.2.5",
+    "prettier": "^2.2.1"
+  },
+  "workspaces": [
+    "projects/*"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "namur-develop": "yarn workspace peintagone-namur develop",
+    "namur-build": "yarn workspace peintagone-namur build",
+    "update": "ncu -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flaves/peintagone"
+  }
+}
