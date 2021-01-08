@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Sebastien Crepin <sebastien@flav.es>",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "npm-check-updates": "^10.2.5",
     "prettier": "^2.2.1"
   },
