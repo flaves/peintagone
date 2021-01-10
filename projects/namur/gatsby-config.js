@@ -24,6 +24,14 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `r8mwe5qbt97f`,
+        accessToken: process.env.CONTENTFUL_TOKEN,
+        environment: `develop`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-eslint',
       options: {
         test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
