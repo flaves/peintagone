@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { BiennaleFont } from './fonts';
+import BiennaleFont from './fonts';
 import marks from './marks';
 
 const reset = css`
@@ -17,10 +17,14 @@ const reset = css`
   html {
     font-family: Biennale, Helvetica Neue, sans-serif;
     height: 100%;
+    font-size: 62.5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   body {
     box-sizing: border-box;
+    font-size: 1.6rem;
     margin: 0;
     padding: 0;
   }

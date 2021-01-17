@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Layout from '../components/layout';
-import SEO from '../components/helpers/seo';
+import PrimaryLayout from '@/components/organisms/layout/PrimaryLayout';
+import SEO from '@/components/atoms/Seo';
 
 const Error: React.FC = () => (
-  <Layout>
+  <PrimaryLayout>
     <SEO title="404: Not found" />
     <h1>Page not found</h1>
-  </Layout>
+  </PrimaryLayout>
 );
 
 export default Error;

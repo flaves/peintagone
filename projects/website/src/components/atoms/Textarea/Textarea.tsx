@@ -6,7 +6,7 @@ interface TextareaProps
   name: string;
 }
 
-const Textarea: React.FC<TextareaProps> = ({ label, ...props }) => {
+const Textarea = ({ label, ...props }: TextareaProps): JSX.Element => {
   return (
     <div>
       {label && <label htmlFor={props.name}>{label}</label>}

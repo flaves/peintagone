@@ -9,7 +9,9 @@ const breakpoints: {
   xxl: 1440,
 };
 
-const mq = (value: `sm` | `md` | `lg` | `xl` | `xxl` | `xxxl`) => {
+const mq = (
+  value: `sm` | `md` | `lg` | `xl` | `xxl` | `xxxl`,
+): string | number => {
   const bpArray = Object.keys(breakpoints).map((key) => [
     key,
     breakpoints[key],

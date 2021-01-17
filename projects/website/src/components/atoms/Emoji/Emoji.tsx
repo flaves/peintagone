@@ -6,7 +6,7 @@ interface EmojiProps {
   symbol: string;
 }
 
-const Emoji: React.FC<EmojiProps> = ({ label, symbol }) => (
+const Emoji = ({ label, symbol }: EmojiProps): JSX.Element => (
   <span
     role="img"
     aria-label={label}

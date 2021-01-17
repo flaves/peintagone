@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { BiennaleFont } from './fonts';
+import BiennaleFont from './fonts';
 import marks from './marks';
 
 const reset = css`

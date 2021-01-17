@@ -4,8 +4,8 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => (
+const PrimaryLayout = ({ children }: LayoutProps): JSX.Element => (
   <main role="main">{children}</main>
 );
 
-export default Layout;
+export default PrimaryLayout;

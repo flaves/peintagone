@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Layout from '../components/layout';
-import SEO from '../components/helpers/seo';
+import PrimaryLayout from '@/components/organisms/layout/PrimaryLayout';
+import SEO from '@/components/atoms/Seo';
 
 const Home: React.FC = () => (
-  <Layout>
+  <PrimaryLayout>
     <SEO title="Home" />
     <h1>Gatsby Starter Flaves</h1>
-  </Layout>
+  </PrimaryLayout>
 );
 
 export default Home;
