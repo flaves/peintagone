@@ -48,7 +48,7 @@
     }
   },
   "lint-staged": {
-    "./projects/*/./src/**/*.{ts,js,jsx,tsx}": [
+    "./projects/**/./src/**/*.{ts,js,jsx,tsx}": [
       "npm run lint --fix",
       "npm run format"
     ]
