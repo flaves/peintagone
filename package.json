@@ -40,18 +40,18 @@
     "lint": "yarn workspaces run lint",
     "format": "yarn workspaces run format"
   },
+  "lint-staged": {
+    "projects/**/**/*.{ts,js,jsx,tsx}": [
+      "npm run format",
+      "npm run lint --fix"
+    ]
+  },
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "lint-staged": {
-    "./projects/**/./src/**/*.{ts,js,jsx,tsx}": [
-      "npm run lint --fix",
-      "npm run format"
-    ]
   },
   "repository": {
     "type": "git",

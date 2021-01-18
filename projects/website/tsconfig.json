@@ -5,8 +5,5 @@
     "paths": {
       "@/*": ["./*"]
     }
-  },
-  "include": ["./src/**/*"],
-  "files": ["wrapWithProvider.tsx"],
-  "exclude": [".cache", "node_modules", "public"]
+  }
 }

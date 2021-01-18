@@ -40,8 +40,8 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "update": "ncu -u",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
+    "lint": "eslint --ignore-path ../../.gitignore \"**/*.+(ts|js|tsx)\"",
+    "format": "prettier --ignore-path ../../.gitignore \"**/*.+(ts|js|tsx)\" --write"
   },
   "repository": {
     "type": "git",

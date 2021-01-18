@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PrimaryLayout from '@/components/organisms/layout/PrimaryLayout';
 import SEO from '@/components/atoms/Seo';
 

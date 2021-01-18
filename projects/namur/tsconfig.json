@@ -5,14 +5,5 @@
     "paths": {
       "@/*": ["./*"]
     }
-  },
-  "include": [
-    "./src/**/*",
-    "gatsby-browser.js",
-    "gatsby-config.js",
-    "gatsby-node.js",
-    "gatsby-ssr.js"
-  ],
-  "files": ["wrapWithProvider.tsx"],
-  "exclude": [".cache", "node_modules", "public"]
+  }
 }
