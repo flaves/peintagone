@@ -41,6 +41,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'global-require': 0,
     'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
     'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

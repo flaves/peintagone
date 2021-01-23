@@ -41,7 +41,8 @@
     "build": "gatsby build",
     "update": "ncu -u",
     "lint": "eslint --ignore-path ../../.gitignore \"**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path ../../.gitignore \"**/*.+(ts|js|tsx)\" --write"
+    "format": "prettier --ignore-path ../../.gitignore \"**/*.+(ts|js|tsx)\" --write",
+    "postinstall": "if [[ -f ../../.git/hooks/husky.local.sh ]]; then sed -i '' -E 's/cd \".+\"/cd \".\"/' ../../.git/hooks/husky.local.sh; fi"
   },
   "repository": {
     "type": "git",

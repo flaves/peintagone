@@ -1,0 +1,27 @@
+{
+  "Main": {
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "label",
+              "placeholder": "Link label"
+            }
+          },
+          "path": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "path",
+              "placeholder": "Link path"
+            }
+          }
+        },
+        "label": "links"
+      }
+    }
+  }
+}
