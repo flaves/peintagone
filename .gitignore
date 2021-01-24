@@ -71,3 +71,7 @@ yarn-error.log
 # Editor / IDE
 .idea
 .vscode
+
+# Graphql Types & schemas (auto-generated)
+graphql-types.ts
+schema.json

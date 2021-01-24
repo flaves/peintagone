@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { GatsbyLinkProps, Link as GatsbyLink } from 'gatsby';
 
 const LinkComponent = (
-  { to, target, children, ...rest }: GatsbyLinkProps<any>,
+  { to, target, children, ...rest }: GatsbyLinkProps<Record<string, unknown>>,
   ref: React.LegacyRef<HTMLAnchorElement>,
 ): JSX.Element => {
   // If external

@@ -1,0 +1,33 @@
+{
+  "Main": {
+    "prismic_document_title": {
+      "type": "Text",
+      "config": {
+        "label": "prismic document title",
+        "placeholder": "Prismic document title",
+        "useAsTitle": true
+      }
+    },
+    "address": {
+      "type": "Text",
+      "config": {
+        "label": "address",
+        "placeholder": "Address"
+      }
+    },
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "email",
+        "placeholder": "Email address"
+      }
+    },
+    "phone_number": {
+      "type": "Text",
+      "config": {
+        "label": "phone number",
+        "placeholder": "Phone number"
+      }
+    }
+  }
+}

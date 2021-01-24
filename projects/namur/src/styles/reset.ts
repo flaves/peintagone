@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 
-import BiennaleFont from './fonts';
-import marks from './marks';
+import theme from '@/styles/theme';
+import BiennaleFont from '@/styles/fonts';
+
+const { primary, textPrimary } = theme.color;
 
 const reset = css`
-  ${process.env.NODE_ENV === `development` && marks}
-
   ${BiennaleFont};
 
   *,
@@ -27,6 +27,8 @@ const reset = css`
     font-size: 1.6rem;
     margin: 0;
     padding: 0;
+    color: ${textPrimary};
+    font-weight: 600;
   }
 
   h1,
@@ -60,6 +62,15 @@ const reset = css`
 
   address {
     font-style: normal;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${textPrimary};
+
+    &:hover {
+      color: ${primary};
+    }
   }
 `;
 
