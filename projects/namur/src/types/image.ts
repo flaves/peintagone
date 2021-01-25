@@ -1,6 +1,6 @@
 import { FluidObject } from 'gatsby-image';
 
-export interface ImageProps {
+export interface ImageType {
   url: string;
   alt: string;
 }

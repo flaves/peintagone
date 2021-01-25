@@ -1,24 +1,49 @@
 import React from 'react';
+import styled from '@emotion/styled';
 
 import { NavDesktop, NavMobile } from '@/components/molecules/Navigation';
 import Logo from '@/components/atoms/Logo';
 import Container from '@/components/atoms/Container';
-import Grid from '@/components/atoms/Grid';
+
+import mq from '@/styles/mq';
 
 import LinkProps from '@/types/link';
 
 interface Props {
-  links: LinkProps[];
+  links: LinkProps[] | undefined;
 }
+
+const NavContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: ${({ theme }) => theme.spacing(2.5)};
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  ${mq('md')} {
+    justify-content: flex-start;
+    margin-right: ${({ theme }) => theme.spacing(5)};
+  }
+`;
 
 const Header = ({ links }: Props): JSX.Element => {
   return (
     <Container>
-      <Grid mt={2.5} container alignItems="center" spacing={1}>
-        <Logo />
-        <NavDesktop links={links} />
-        <NavMobile links={links} />
-      </Grid>
+      <NavContainer>
+        <LogoContainer>
+          <Logo />
+        </LogoContainer>
+        {links && (
+          <>
+            <NavDesktop links={links} />
+            <NavMobile links={links} />
+          </>
+        )}
+      </NavContainer>
     </Container>
   );
 };

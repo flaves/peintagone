@@ -42,6 +42,8 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'react/jsx-one-expression-per-line': 0,
+    'no-unused-vars': 0,
     'import/prefer-default-export': 'warn',
     'global-require': 0,
     'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
@@ -58,13 +60,6 @@ module.exports = {
     'spaced-comment': 0,
     'no-use-before-define': [0],
     'implicit-arrow-linebreak': [0, { 'arrow-body-style': 'always' }],
-    'no-unused-vars': [
-      'warn',
-      {
-        vars: 'all',
-        args: 'all',
-      },
-    ],
     'react-hooks/exhaustive-deps': 0,
     'react/jsx-props-no-spreading': 'off',
     'react/no-unused-prop-types': 1,

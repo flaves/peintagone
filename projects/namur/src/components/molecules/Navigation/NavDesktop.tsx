@@ -1,13 +1,12 @@
 import React from 'react';
-import { css } from '@emotion/react';
-
-import mq from '@/styles/mq';
+import styled from '@emotion/styled';
 
 import Link from '@/components/atoms/Link';
 import Grid from '@/components/atoms/Grid';
 
+import mq from '@/styles/mq';
+
 import LinkProps from '@/types/link';
-import styled from '@emotion/styled';
 
 interface Props {
   links: LinkProps[];
@@ -15,10 +14,11 @@ interface Props {
 
 const LinkStyled = styled(Link)`
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 800;
+  margin-right: ${({ theme }) => theme.spacing(2.5)};
 `;
 
-const hideOnMobile = css`
+const NavGrid = styled(Grid)`
   display: none;
 
   ${mq('md')} {
@@ -28,16 +28,12 @@ const hideOnMobile = css`
 
 const NavDesktop = ({ links }: Props): JSX.Element => {
   const Links = links.map((link, index) => (
-    <LinkStyled key={index.toString()} to={link.path}>
+    <LinkStyled key={index.toString()} to={link.url}>
       {link.label}
     </LinkStyled>
   ));
 
-  return (
-    <Grid container spacing={2.5} css={hideOnMobile}>
-      {Links}
-    </Grid>
-  );
+  return <NavGrid container>{Links}</NavGrid>;
 };
 
 export default NavDesktop;

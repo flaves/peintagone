@@ -1,0 +1,59 @@
+{
+  "Main": {
+    "prismic_document_name": {
+      "type": "Text",
+      "config": {
+        "label": "prismic document name",
+        "placeholder": "prismic document name",
+        "useAsTitle": true
+      }
+    },
+    "legal_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "label",
+              "placeholder": "label"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "link",
+              "placeholder": "link",
+              "allowTargetBlank": true
+            }
+          }
+        },
+        "label": "legal links"
+      }
+    },
+    "social_media": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "icon"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "link",
+              "placeholder": "link"
+            }
+          }
+        },
+        "label": "social media"
+      }
+    }
+  }
+}

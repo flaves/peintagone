@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 
-import theme from '@/styles/theme';
+import { color } from '@/styles/theme';
 import BiennaleFont from '@/styles/fonts';
 
-const { primary, textPrimary } = theme.color;
+const { primary, textPrimary } = color;
 
 const reset = css`
   ${BiennaleFont};

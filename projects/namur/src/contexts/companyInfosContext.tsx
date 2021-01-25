@@ -23,6 +23,7 @@ const initialCompany = {
   address: '',
   phone: '',
   email: '',
+  schedule: '',
 };
 
 const initialValue: CompanyInfosContextType = {

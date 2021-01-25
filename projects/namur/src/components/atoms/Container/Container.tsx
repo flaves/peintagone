@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 
 import mq from '@/styles/mq';
 
-import SizeType from '@/types/size';
 import setSize from '@/utils/setSize';
+
+import SizeType from '@/types/size';
 
 interface Props {
   className?: string;
@@ -14,7 +15,8 @@ interface Props {
 
 const Root = styled.div<Props>`
   margin: auto;
-  padding: 0 2rem;
+  padding: 0 5rem;
+
   max-width: ${({ maxWidth = 'md' }) => setSize(maxWidth)}px;
 
   ${mq('md')} {

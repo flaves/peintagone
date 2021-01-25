@@ -19,12 +19,12 @@
               "placeholder": "Link label"
             }
           },
-          "path": {
+          "link": {
             "type": "Link",
             "config": {
               "allowTargetBlank": true,
-              "label": "path",
-              "placeholder": "Link path"
+              "label": "link",
+              "placeholder": "Link"
             }
           }
         },

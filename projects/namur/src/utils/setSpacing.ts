@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
-import theme from '@/styles/theme';
+import { spacingBase } from '@/styles/theme';
 
 const renderSpacing = (multiplier: number): string =>
-  `${multiplier * theme.spacingBase}px`;
+  `${multiplier * spacingBase}px`;
 
 const setSpacing = (
   m: number | undefined,
@@ -19,7 +19,7 @@ const setSpacing = (
   pb: number | undefined,
   px: number | undefined,
   py: number | undefined,
-) => {
+): any => {
   let style = '';
   if (m)
     style += `

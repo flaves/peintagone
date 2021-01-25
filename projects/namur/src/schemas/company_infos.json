@@ -9,8 +9,9 @@
       }
     },
     "address": {
-      "type": "Text",
+      "type": "StructuredText",
       "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
         "label": "address",
         "placeholder": "Address"
       }
@@ -27,6 +28,15 @@
       "config": {
         "label": "phone number",
         "placeholder": "Phone number"
+      }
+    },
+    "schedule": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "schedule",
+        "placeholder": "schedule"
       }
     }
   }

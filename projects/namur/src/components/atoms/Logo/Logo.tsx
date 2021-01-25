@@ -7,7 +7,7 @@ const Logo = (): JSX.Element => {
       <text
         fill="rgba(0,0,0,0.5)"
         fontFamily="sans-serif"
-        fontSize="30"
+        fontSize="16"
         dy="10.5"
         fontWeight="bold"
         x="50%"

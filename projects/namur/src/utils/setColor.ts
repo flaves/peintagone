@@ -1,5 +1,6 @@
+import { color as themeColors } from '@/styles/theme';
+
 import ColorType from '@/types/color';
-import theme from '@/styles/theme';
 
 const {
   primary,
@@ -11,7 +12,7 @@ const {
   error,
   black,
   white,
-} = theme.color;
+} = themeColors;
 
 const colorsMap: Record<ColorType, string> = {
   primary,

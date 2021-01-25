@@ -38,8 +38,9 @@ module.exports = {
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         // Put your prismic schemas here !
         schemas: {
-          business_infos: require('./src/schemas/company_infos.json'),
+          company_infos: require('./src/schemas/company_infos.json'),
           navigation: require('./src/schemas/layout/navigation.json'),
+          footer: require('./src/schemas/layout/footer.json'),
         },
       },
     },

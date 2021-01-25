@@ -18,7 +18,7 @@ interface Props extends UtilityProps {
   opacity?: number;
 }
 
-const setTypoStyle = (variant: TypoType) => {
+const setTypoStyle = (variant: TypoType | undefined) => {
   switch (variant) {
     case 'h1':
       return css`
@@ -47,7 +47,7 @@ const setTypoStyle = (variant: TypoType) => {
           font-size: 2.4rem;
         }
       `;
-    case 'body':
+    case 'p':
       return css`
         font-size: 2rem;
         font-weight: 500;
@@ -66,7 +66,7 @@ const setTypoStyle = (variant: TypoType) => {
 
 const Root = styled.p<Props>`
   color: ${({ color = 'textPrimary' }) => setColor(color)};
-  ${({ variant = 'body' }) => setTypoStyle(variant)};
+  ${({ variant }) => setTypoStyle(variant)};
   font-size: ${({ fontSize = 1.6 }) => `${fontSize}rem`};
   font-weight: ${({ fontWeight = 500 }) => fontWeight};
   opacity: ${({ opacity = 1 }) => opacity};

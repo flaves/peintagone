@@ -19,14 +19,13 @@ interface Props extends UtilityResponsiveProps {
   flexWrap?: Property.FlexWrap;
   justifyContent?: Property.JustifyContent;
   alignItems?: Property.AlignItems;
-  spacing?: number;
 }
 
 const { columns } = theme.grid;
 
 const renderContainerSize = (divider: number) => css`
   flex-grow: 0;
-  max-width: calc(100% / (${columns} / ${divider})) px;
+  max-width: calc(100% / (${columns} / ${divider}));
   flex-basis: calc(100% / (${columns} / ${divider}));
 `;
 
@@ -40,20 +39,15 @@ const Root = styled.div<Props>`
     flexWrap = 'wrap',
     justifyContent = 'flex-start',
     alignItems = 'flex-start',
-    spacing = 0,
   }) =>
     container &&
     css`
+      width: 100%;
       display: flex;
       flex-direction: ${flexDirection};
       flex-wrap: ${flexWrap};
       justify-content: ${justifyContent};
       align-items: ${alignItems};
-
-      & > * {
-        padding-left: ${theme.spacingBase * spacing}px;
-        padding-right: ${theme.spacingBase * spacing}px;
-      }
     `}
 
   ${({ xs }) => xs && renderContainerSize(xs)}
