@@ -58,5 +58,54 @@
         "label": "hero image"
       }
     }
+  },
+  "Products": {
+    "product_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "product section title",
+        "placeholder": "Product section title"
+      }
+    },
+    "product_section_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "product section text",
+        "placeholder": "Product section test"
+      }
+    },
+    "products": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "name",
+              "placeholder": "Product name"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "link",
+              "placeholder": "Link to product"
+            }
+          }
+        },
+        "label": "products"
+      }
+    }
   }
 }

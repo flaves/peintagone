@@ -28,6 +28,23 @@ export const query = graphql`
           url
           alt
         }
+        product_section_title {
+          raw
+        }
+        product_section_text {
+          raw
+        }
+        products {
+          image {
+            url
+            alt
+          }
+          name
+          link {
+            url
+            target
+          }
+        }
       }
     }
   }

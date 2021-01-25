@@ -70,10 +70,10 @@ const BlueArrowStyled = styled(BlueArrow)`
     display: block;
     position: absolute;
     top: -80px;
-    left: -300px;
+    left: -500px;
     z-index: ${({ theme }) => theme.zIndex.top};
-    opacity: 0.1;
-    height: 800px;
+    opacity: 0.06;
+    height: 900px;
   }
 `;
 const ImageGrid = styled(Grid)`
@@ -112,11 +112,9 @@ const ImageContainer = styled(Grid)`
 `;
 const HeroImage = styled(Img)`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: -50%;
+  object-position: 50% 50%;
 
   ${mq('md')} {
     display: block;
@@ -137,12 +135,8 @@ const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
             <Typography as="div" variant="h1">
               {title}
             </Typography>
-            <HeroText opacity={0.6} variant="p">
-              {text}
-            </HeroText>
-            <HeroTextMobile opacity={0.6} variant="p">
-              {textMobile}
-            </HeroTextMobile>
+            <HeroText variant="textLg">{text}</HeroText>
+            <HeroTextMobile variant="textLg">{textMobile}</HeroTextMobile>
           </TextContainer>
         </TextGrid>
         <ImageGrid md={6} xs={12}>

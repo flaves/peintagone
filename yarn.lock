@@ -13419,6 +13419,13 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-alice-carousel@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-2.2.2.tgz#9709c4b8fbcd99fdd010dc01fc463793b30bbe5d"
+  integrity sha512-hk4QyPDZtHh03avuNBuT/A+CojFdPyB/xi3wehyta+e0EvzlxS8286u82/IkWt4TceGcTWHCltdes6u/DNBgkQ==
+  dependencies:
+    vanilla-swipe "^2.2.0"
+
 react-axe@^3.4.1:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/react-axe/-/react-axe-3.5.4.tgz#f59b9ea08eb82341f53cb26c5c53724417bc8c8f"
@@ -16340,6 +16347,11 @@ validate-npm-package-name@^3.0.0:
   integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
   dependencies:
     builtins "^1.0.3"
+
+vanilla-swipe@^2.2.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vanilla-swipe/-/vanilla-swipe-2.3.0.tgz#a2cd466aabed00c1e8abd7b69a86940bf9319516"
+  integrity sha512-4m8vZ/kckRG7RQUYNg+0lGILMHT08KEgwePlRLzediDSu7aQFBLB0V2n36vUmYqq5CVWASOzZ8zpnQFZXIbHbA==
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"
