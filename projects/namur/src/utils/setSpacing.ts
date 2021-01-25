@@ -5,20 +5,20 @@ const renderSpacing = (multiplier: number): string =>
   `${multiplier * spacingBase}px`;
 
 const setSpacing = (
-  m: number | undefined,
-  mt: number | undefined,
-  mr: number | undefined,
-  ml: number | undefined,
-  mb: number | undefined,
-  mx: number | undefined,
-  my: number | undefined,
-  p: number | undefined,
-  pt: number | undefined,
-  pr: number | undefined,
-  pl: number | undefined,
-  pb: number | undefined,
-  px: number | undefined,
-  py: number | undefined,
+  m?: number,
+  mt?: number,
+  mr?: number,
+  ml?: number,
+  mb?: number,
+  mx?: number,
+  my?: number,
+  p?: number,
+  pt?: number,
+  pr?: number,
+  pl?: number,
+  pb?: number,
+  px?: number,
+  py?: number,
 ): any => {
   let style = '';
   if (m)

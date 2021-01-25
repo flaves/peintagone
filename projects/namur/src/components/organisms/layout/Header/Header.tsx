@@ -10,19 +10,23 @@ import mq from '@/styles/mq';
 import LinkProps from '@/types/link';
 
 interface Props {
-  links: LinkProps[] | undefined;
+  links?: LinkProps[];
 }
 
 const NavContainer = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: ${({ theme }) => theme.spacing(2.5)};
+
+  ${mq('md')} {
+    justify-content: flex-start;
+  }
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
 
   ${mq('md')} {
     justify-content: flex-start;

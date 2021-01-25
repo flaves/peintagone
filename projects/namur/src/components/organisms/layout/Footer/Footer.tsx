@@ -17,11 +17,15 @@ import LinkType from '@/types/link';
 import { SocialProps } from '@/components/molecules/Socials/Socials';
 
 interface Props {
-  links: LinkType[] | undefined;
-  socials: SocialProps[] | undefined;
-  legals: LinkType[] | undefined;
+  links?: LinkType[];
+  socials?: SocialProps[];
+  legals?: LinkType[];
 }
 
+const Root = styled.div`
+  // @todo set to 5
+  margin-top: ${({ theme }) => theme.spacing(30)};
+`;
 const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,11 +47,11 @@ const ColumnsContainer = styled(Grid)`
   }
 
   ${mq('sm')} {
-    ${Column}:nth-child(2n + 1) {
+    ${Column}:nth-of-type(2n + 1) {
       margin-top: ${({ theme }) => theme.spacing(4)};
     }
 
-    ${Column}:nth-child(even) {
+    ${Column}:nth-of-type(even) {
       align-items: flex-end;
     }
   }
@@ -58,10 +62,10 @@ const ColumnsContainer = styled(Grid)`
     ${Column}:not(:first-of-type) {
       margin-top: 0;
     }
-    ${Column}:nth-child(2n + 1) {
+    ${Column}:nth-of-type(2n + 1) {
       margin-top: 0;
     }
-    ${Column}:nth-child(even) {
+    ${Column}:nth-of-type(even) {
       align-items: flex-start;
     }
   }
@@ -153,7 +157,7 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
     ));
 
   return (
-    <>
+    <Root>
       <Separator />
       <Container>
         <ColumnsContainer container>
@@ -189,7 +193,7 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
           </Copyright>
         </BottomContainer>
       </Container>
-    </>
+    </Root>
   );
 };
 

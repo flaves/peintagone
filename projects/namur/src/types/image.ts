@@ -1,8 +1,8 @@
 import { FluidObject } from 'gatsby-image';
 
 export interface ImageType {
-  url: string;
-  alt: string;
+  url?: string | null;
+  alt?: string | null;
 }
 
 export interface GatsbyImageType {

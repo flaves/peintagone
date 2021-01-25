@@ -41,6 +41,7 @@ module.exports = {
           company_infos: require('./src/schemas/company_infos.json'),
           navigation: require('./src/schemas/layout/navigation.json'),
           footer: require('./src/schemas/layout/footer.json'),
+          home_page: require('./src/schemas/home_page.json'),
         },
       },
     },

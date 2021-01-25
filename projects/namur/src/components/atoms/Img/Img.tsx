@@ -6,8 +6,8 @@ import 'lazysizes';
 import 'lazysizes/plugins/attrchange/ls.attrchange';
 
 interface Props {
-  src: string;
-  alt?: string;
+  src?: string | null;
+  alt?: string | null;
   className?: string;
   sizes?: string;
   width?: number;
@@ -22,6 +22,8 @@ const Img = ({
   width,
   height,
 }: Props): JSX.Element => {
+  if (!src) return <div />;
+
   return (
     <Imgix
       className={clsx('lazyload', className)}

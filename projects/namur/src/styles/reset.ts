@@ -40,6 +40,9 @@ const reset = css`
   p,
   button {
     font-family: Biennale, Helvetica Neue, sans-serif;
+    // Rich text will inherit from parent component (Typography)
+    font-size: inherit;
+    font-weight: inherit;
   }
 
   h1,
