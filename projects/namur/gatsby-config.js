@@ -23,6 +23,27 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
+    'gatsby-plugin-extract-schema',
+    'gatsby-plugin-react-axe',
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        documentPaths: [`./src/**/*.{ts,tsx}`],
+      },
+    },
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
+        accessToken: `${process.env.PRISMIC_API_KEY}`,
+        // Put your prismic schemas here !
+        schemas: {
+          company_infos: require('./src/schemas/company_infos.json'),
+          navigation: require('./src/schemas/layout/navigation.json'),
+          footer: require('./src/schemas/layout/footer.json'),
+        },
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {

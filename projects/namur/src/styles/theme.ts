@@ -1,57 +1,70 @@
 import '@emotion/react';
 
+import ColorType from '@/types/color';
+import SizeType from '@/types/size';
+import zIndexType from '@/types/zIndex';
+
 declare module '@emotion/react' {
   export interface Theme {
     color: {
-      primary: string;
-      accent: string;
-      background: string;
-      heading: string;
-      text: string;
-      success: string;
-      warning: string;
-      error: string;
-      black: string;
-      white: string;
+      [key in ColorType]: string;
     };
-    fontWeight: {
-      thin: number;
-      extraLight: number;
-      light: number;
-      regular: number;
-      medium: number;
-      semiBold: number;
-      bold: number;
-      black: number;
-      heavy: number;
+    breakpoints: {
+      [key in SizeType]: number;
+    };
+    grid: {
+      columns: number;
+    };
+    spacingBase: number;
+    spacing: (multiplier: number) => string;
+    zIndex: {
+      [key in zIndexType]: number;
     };
   }
 }
 
+export const spacingBase = 10;
+
+export const color = {
+  primary: `#7cb0c8`,
+  secondary: `#f8f8f8`,
+  textPrimary: `#575d5e`,
+  textSecondary: `#FFF`,
+  success: `hsl(145, 63%, 50%)`,
+  warning: `hsl(46, 100%, 60%)`,
+  error: `hsl(0, 100%, 70%)`,
+  black: `hsl(0, 0%, 0%)`,
+  white: `hsl(0, 0%, 100%)`,
+};
+
+export const breakpoints = { xs: 375, sm: 768, md: 1240, lg: 1440, xl: 1980 };
+
+export const grid = {
+  columns: 12,
+};
+
+export const spacing = (mutliplier: number): string =>
+  `${spacingBase * mutliplier}px`;
+
+export const zIndex = {
+  default: 1,
+  top: 100,
+  overlay: 200,
+  content: 300,
+  tooltip: 400,
+  dropdown: 500,
+  fixed: 600,
+  menu: 700,
+  modal: 1000,
+};
+
 const theme = {
-  color: {
-    primary: `hsl(60, 4%, 11%)`,
-    accent: `hsl(60, 4%, 11%)`,
-    background: `hsl(0, 0%, 9%)`,
-    heading: `hsl(0, 0%, 0%)`,
-    text: `hsl(0, 0%, 0%)`,
-    success: `hsl(145, 63%, 50%)`,
-    warning: `hsl(46, 100%, 60%)`,
-    error: `hsl(0, 100%, 70%)`,
-    black: `hsl(0, 0%, 0%)`,
-    white: `hsl(0, 0%, 100%)`,
-  },
-  fontWeight: {
-    thin: 100,
-    extraLight: 200,
-    light: 300,
-    regular: 400,
-    medium: 500,
-    semiBold: 600,
-    bold: 700,
-    black: 800,
-    heavy: 900,
-  },
+  color,
+  breakpoints,
+  grid,
+  spacingBase,
+  spacing,
+  zIndex,
 };
 
 export default theme;

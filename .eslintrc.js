@@ -25,6 +25,7 @@ module.exports = {
     'plugin:promise/recommended',
     'airbnb-typescript',
     'airbnb/hooks',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
@@ -41,6 +42,10 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'react/jsx-one-expression-per-line': 0,
+    'no-unused-vars': 0,
+    'import/prefer-default-export': 'warn',
+    'global-require': 0,
     'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
     'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -55,13 +60,6 @@ module.exports = {
     'spaced-comment': 0,
     'no-use-before-define': [0],
     'implicit-arrow-linebreak': [0, { 'arrow-body-style': 'always' }],
-    'no-unused-vars': [
-      'warn',
-      {
-        vars: 'all',
-        args: 'all',
-      },
-    ],
     'react-hooks/exhaustive-deps': 0,
     'react/jsx-props-no-spreading': 'off',
     'react/no-unused-prop-types': 1,

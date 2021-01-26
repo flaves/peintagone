@@ -1,0 +1,35 @@
+{
+  "Main": {
+    "prismic_document_name": {
+      "type": "Text",
+      "config": {
+        "label": "prismic document name",
+        "placeholder": "Use this to change document name",
+        "useAsTitle": true
+      }
+    },
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "label",
+              "placeholder": "Link label"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "link",
+              "placeholder": "Link"
+            }
+          }
+        },
+        "label": "links"
+      }
+    }
+  }
+}

@@ -1,17 +1,9 @@
-const breakpoints: {
-  [key: string]: number;
-} = {
-  xs: 375,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1440,
-};
+import theme from '@/styles/theme';
+import SizeType from '@/types/size';
 
-const mq = (
-  value: `sm` | `md` | `lg` | `xl` | `xxl` | `xxxl`,
-): string | number => {
+const { breakpoints }: { breakpoints: Record<string, number> } = theme;
+
+const mq = (value: SizeType): string | number => {
   const bpArray = Object.keys(breakpoints).map((key) => [
     key,
     breakpoints[key],

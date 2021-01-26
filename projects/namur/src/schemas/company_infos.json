@@ -1,0 +1,43 @@
+{
+  "Main": {
+    "prismic_document_title": {
+      "type": "Text",
+      "config": {
+        "label": "prismic document title",
+        "placeholder": "Prismic document title",
+        "useAsTitle": true
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
+        "label": "address",
+        "placeholder": "Address"
+      }
+    },
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "email",
+        "placeholder": "Email address"
+      }
+    },
+    "phone_number": {
+      "type": "Text",
+      "config": {
+        "label": "phone number",
+        "placeholder": "Phone number"
+      }
+    },
+    "schedule": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "schedule",
+        "placeholder": "schedule"
+      }
+    }
+  }
+}
