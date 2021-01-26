@@ -15,7 +15,7 @@ interface Props {
 
 const Root = styled.div<Props>`
   margin: auto;
-  padding: 0 5rem;
+  padding: 0 2rem;
 
   max-width: ${({ maxWidth = 'md' }) => setSize(maxWidth)}px;
 

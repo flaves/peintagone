@@ -1,0 +1,62 @@
+{
+  "Main": {
+    "prismic_document_title": {
+      "type": "Text",
+      "config": {
+        "label": "prismic document title",
+        "placeholder": "Prismic document title",
+        "useAsTitle": true
+      }
+    },
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "meta title",
+        "placeholder": "meta title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "meta description",
+        "placeholder": "meta description"
+      }
+    }
+  },
+  "Hero": {
+    "hero_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "hero title",
+        "placeholder": "Hero title"
+      }
+    },
+    "hero_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Hero text",
+        "placeholder": "hero text"
+      }
+    },
+    "hero_text_mobile": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "hero text mobile",
+        "placeholder": "hero text on mobile devices"
+      }
+    },
+    "hero_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "hero image"
+      }
+    }
+  }
+}

@@ -1,11 +1,42 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import PrimaryLayout from '@/components/organisms/layout/PrimaryLayout';
 import SEO from '@/components/atoms/Seo';
+import HomeContainer from '@/container/Home/HomeContainer';
 
-const Home: React.FC = () => (
+import { HomePageQuery } from '../../graphql-types';
+
+interface Props {
+  data: HomePageQuery;
+}
+
+export const query = graphql`
+  query HomePage {
+    prismicHomePage {
+      data {
+        hero_title {
+          raw
+        }
+        hero_text {
+          raw
+        }
+        hero_text_mobile {
+          raw
+        }
+        hero_image {
+          url
+          alt
+        }
+      }
+    }
+  }
+`;
+
+const Home = ({ data }: Props): JSX.Element => (
   <PrimaryLayout>
     <SEO title="Home" />
+    <HomeContainer data={data} />
   </PrimaryLayout>
 );
 

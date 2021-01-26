@@ -9,7 +9,6 @@ import FabButton from '@/components/atoms/FabButton';
 import Container from '@/components/atoms/Container';
 import Logo from '@/components/atoms/Logo';
 import Grid from '@/components/atoms/Grid';
-import Typography from '@/components/atoms/Typography';
 
 import mq from '@/styles/mq';
 
@@ -28,7 +27,6 @@ const Root = styled.div`
     display: none;
   }
 `;
-
 const Menu = styled.div`
   position: absolute;
   z-index: ${({ theme }) => theme.zIndex.menu};
@@ -41,7 +39,6 @@ const Menu = styled.div`
   transform: translateX(150vw);
   transition: all 0.5s ease;
 `;
-
 const LinkStyled = styled(Link)`
   display: block;
   color: ${({ theme }) => theme.color.textSecondary};
@@ -53,7 +50,6 @@ const LinkStyled = styled(Link)`
     color: ${({ theme }) => theme.color.textPrimary};
   }
 `;
-
 const FabButtonStyled = styled(FabButton)`
   position: fixed;
   bottom: 5%;
@@ -62,24 +58,28 @@ const FabButtonStyled = styled(FabButton)`
   justify-content: center;
   align-items: center;
 `;
-
+const ButtonText = styled.span`
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: ${({ theme }) => theme.color.textSecondary};
+`;
 const CloseIcon = styled(FontAwesomeIcon)`
   font-size: 2rem;
 `;
-
 const MenuContent = styled(Container)`
   margin-top: ${({ theme }) => theme.spacing(3)};
 `;
-
+const MenuText = styled.p`
+  color: ${({ theme }) => theme.color.textSecondary};
+  font-weight: 800;
+`;
 const LinksContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing(3)};
 `;
-
 const CompanyInfosContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing(4)};
   line-height: 2;
 `;
-
 const show = css`
   transform: translateX(0);
 `;
@@ -97,9 +97,7 @@ const NavMobile = ({ links }: Props): JSX.Element => {
   return (
     <Root>
       <FabButtonStyled onClick={() => setOpen(true)} bgColor="primary">
-        <Typography variant="p" fontWeight={700} color="textSecondary">
-          menu
-        </Typography>
+        <ButtonText>menu</ButtonText>
       </FabButtonStyled>
       <Menu css={open && show}>
         <MenuContent>
@@ -108,12 +106,8 @@ const NavMobile = ({ links }: Props): JSX.Element => {
           </Grid>
           <LinksContainer>{Links}</LinksContainer>
           <CompanyInfosContainer>
-            <Typography color="textSecondary" fontWeight={800}>
-              {companyInfos.email}
-            </Typography>
-            <Typography color="textSecondary" fontWeight={800}>
-              {companyInfos.phone}
-            </Typography>
+            <MenuText>{companyInfos.email}</MenuText>
+            <MenuText>{companyInfos.phone}</MenuText>
           </CompanyInfosContainer>
           <FabButtonStyled onClick={() => setOpen(false)} bgColor="white">
             <CloseIcon icon={faTimes} />
