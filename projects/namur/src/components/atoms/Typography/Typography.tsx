@@ -11,11 +11,8 @@ import ColorType from '@/types/color';
 
 interface Props extends UtilityProps {
   children: React.ReactNode;
-  fontSize?: number;
-  fontWeight?: number;
   variant?: TypoType;
   color?: ColorType;
-  opacity?: number;
   as?: React.ElementType;
 }
 
@@ -48,14 +45,27 @@ const setTypoStyle = (variant?: TypoType) => {
           font-size: 2.4rem;
         }
       `;
-    case 'p':
+    case 'textLg':
       return css`
         font-size: 2rem;
         font-weight: 500;
+        opacity: 0.6;
 
         ${mq('md')} {
           font-size: 2.4rem;
         }
+      `;
+    case 'textMd':
+      return css`
+        font-size: 2rem;
+        font-weight: 500;
+        opacity: 0.6;
+      `;
+    case 'textSm':
+      return css`
+        font-size: 1.4rem;
+        font-weight: 400;
+        opacity: 0.6;
       `;
     default:
       return css`
@@ -68,7 +78,6 @@ const setTypoStyle = (variant?: TypoType) => {
 const Root = styled.p<Props>`
   color: ${({ color = 'textPrimary' }) => setColor(color)};
   ${({ variant }) => setTypoStyle(variant)};
-  opacity: ${({ opacity = 1 }) => opacity};
 `;
 
 const Typography = ({ children, as = 'div', ...rest }: Props): JSX.Element => {

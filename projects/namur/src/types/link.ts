@@ -1,7 +1,7 @@
 interface LinkType {
-  label?: string;
-  url: string;
-  target?: string;
+  label?: string | null;
+  url?: string | null;
+  target?: string | null;
 }
 
 export default LinkType;
