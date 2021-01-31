@@ -18,6 +18,7 @@ export const query = graphql`
         ...HomeHero
         ...HomeProducts
         ...HomeQuestion
+        ...HomeMap
       }
     }
   }

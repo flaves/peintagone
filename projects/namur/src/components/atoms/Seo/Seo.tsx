@@ -84,7 +84,12 @@ const SEO = ({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css"
+        rel="stylesheet"
+      />
+    </Helmet>
   );
 };
 
