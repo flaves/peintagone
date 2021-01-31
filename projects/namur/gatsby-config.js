@@ -42,7 +42,9 @@ module.exports = {
           navigation: require('./src/schemas/layout/navigation.json'),
           footer: require('./src/schemas/layout/footer.json'),
           home_page: require('./src/schemas/home_page.json'),
+          contact_page: require('./src/schemas/contact_page.json'),
         },
+        linkResolver: require('./src/utils/linkResolver.ts'),
       },
     },
     {

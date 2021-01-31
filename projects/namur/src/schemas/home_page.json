@@ -1,11 +1,10 @@
 {
   "Main": {
-    "prismic_document_title": {
-      "type": "Text",
+    "uid": {
+      "type": "UID",
       "config": {
-        "label": "prismic document title",
-        "placeholder": "Prismic document title",
-        "useAsTitle": true
+        "label": "uid",
+        "placeholder": "uid"
       }
     },
     "meta_title": {
@@ -105,6 +104,55 @@
           }
         },
         "label": "products"
+      }
+    }
+  },
+  "Question": {
+    "question_background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "question background"
+      }
+    },
+    "question_mobile_background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "question mobile background"
+      }
+    },
+    "question_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "question section title",
+        "placeholder": "Title"
+      }
+    },
+    "question_section_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "question section text",
+        "placeholder": "Text"
+      }
+    },
+    "question_button_label": {
+      "type": "Text",
+      "config": {
+        "label": "question button label",
+        "placeholder": "Button label"
+      }
+    },
+    "question_button_link": {
+      "type": "Link",
+      "config": {
+        "label": "question button link",
+        "placeholder": "Button link"
       }
     }
   }

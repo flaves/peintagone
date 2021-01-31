@@ -16,15 +16,7 @@ interface LayoutProps {
 export const query = graphql`
   query Layout {
     prismicNavigation {
-      data {
-        links {
-          label
-          link {
-            url
-            target
-          }
-        }
-      }
+      ...Navigation
     }
     prismicCompanyInfos {
       data {
@@ -39,25 +31,7 @@ export const query = graphql`
       }
     }
     prismicFooter {
-      data {
-        social_media {
-          icon {
-            alt
-            url
-          }
-          link {
-            url
-            target
-          }
-        }
-        legal_links {
-          label
-          link {
-            url
-            target
-          }
-        }
-      }
+      ...Footer
     }
   }
 `;

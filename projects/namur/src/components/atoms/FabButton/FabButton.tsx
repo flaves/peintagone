@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import setColor from '@/utils/setColor';
+import setColor from '@/utils/style/setColor';
 
 import ColorType from '@/types/color';
 

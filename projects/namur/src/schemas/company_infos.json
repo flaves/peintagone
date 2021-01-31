@@ -1,13 +1,5 @@
 {
   "Main": {
-    "prismic_document_title": {
-      "type": "Text",
-      "config": {
-        "label": "prismic document title",
-        "placeholder": "Prismic document title",
-        "useAsTitle": true
-      }
-    },
     "address": {
       "type": "StructuredText",
       "config": {

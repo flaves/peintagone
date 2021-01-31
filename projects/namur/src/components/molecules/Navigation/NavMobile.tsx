@@ -34,20 +34,20 @@ const Menu = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${({ theme }) => theme.color.primary};
-  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.primary.main};
+  color: ${({ theme }) => theme.color.white.main};
   transform: translateX(150vw);
   transition: all 0.5s ease;
 `;
 const LinkStyled = styled(Link)`
   display: block;
-  color: ${({ theme }) => theme.color.textSecondary};
+  color: ${({ theme }) => theme.color.textSecondary.main};
   margin-top: ${({ theme }) => theme.spacing(2)};
   font-size: 2.4rem;
   font-weight: 700;
 
   &:hover {
-    color: ${({ theme }) => theme.color.textPrimary};
+    color: ${({ theme }) => theme.color.textPrimary.main};
   }
 `;
 const FabButtonStyled = styled(FabButton)`
@@ -61,7 +61,7 @@ const FabButtonStyled = styled(FabButton)`
 const ButtonText = styled.span`
   font-size: 1.2rem;
   font-weight: 800;
-  color: ${({ theme }) => theme.color.textSecondary};
+  color: ${({ theme }) => theme.color.textSecondary.main};
 `;
 const CloseIcon = styled(FontAwesomeIcon)`
   font-size: 2rem;
@@ -70,7 +70,7 @@ const MenuContent = styled(Container)`
   margin-top: ${({ theme }) => theme.spacing(3)};
 `;
 const MenuText = styled.p`
-  color: ${({ theme }) => theme.color.textSecondary};
+  color: ${({ theme }) => theme.color.textSecondary.main};
   font-weight: 800;
 `;
 const LinksContainer = styled.div`
@@ -89,7 +89,11 @@ const NavMobile = ({ links }: Props): JSX.Element => {
   const { companyInfos } = useCompanyInfosContext();
 
   const Links = links.map((link, index) => (
-    <LinkStyled key={index.toString()} to={link.url} target={link.target}>
+    <LinkStyled
+      key={index.toString()}
+      to={link.url || ''}
+      target={link.target || ''}
+    >
       {link.label}
     </LinkStyled>
   ));
