@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomeMap from '@/container/Home/HomeMap';
 import HomeQuestion from '@/container/Home/HomeQuestion';
 
 import { HomePageQuery } from '../../../graphql-types';
@@ -20,6 +21,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    map_section_title,
     question_background,
     question_mobile_background,
     question_section_title,
@@ -54,6 +56,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     })),
   };
 
+  const MapProps = {
+    title: <RichText render={map_section_title?.raw} />,
+  };
+
   const QuestionProps = {
     background: {
       backgroundUrl: question_background?.url,
@@ -74,6 +80,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomeMap {...MapProps} />
       <HomeQuestion {...QuestionProps} />
     </>
   );
