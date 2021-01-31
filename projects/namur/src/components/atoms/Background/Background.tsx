@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, SerializedStyles } from '@emotion/react';
+import { css, SerializedStyles, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import Img from '@/components/atoms/Img';
@@ -21,6 +21,7 @@ export interface BackgroundProps {
   fit?: 'cover' | 'contain';
   children?: React.ReactNode;
   classes?: ClassesProps;
+  overlay?: boolean;
 }
 
 const Root = styled.div<BackgroundProps>`
@@ -52,6 +53,19 @@ const Content = styled.div`
   position: relative;
   z-index: ${({ theme }) => theme.zIndex.content};
 `;
+const setOverlay = (theme: Theme) => css`
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: ${theme.zIndex.overlay};
+    background-color: rgba(17, 17, 17, 0.4);
+  }
+`;
 const fitContain = css`
   object-fit: contain;
 `;
@@ -68,6 +82,7 @@ const Background = ({
   fit,
   children,
   classes,
+  overlay,
   ...rest
 }: BackgroundProps): JSX.Element => {
   if (!backgroundUrl) return <div />;
@@ -77,7 +92,7 @@ const Background = ({
   const contentClassName = classes?.content;
 
   return (
-    <Root css={rootClassName}>
+    <Root css={[rootClassName, overlay && setOverlay]}>
       <DesktopImg
         src={backgroundUrl}
         alt={backgroundAlt || ''}

@@ -11,6 +11,7 @@ import Background from '@/components/atoms/Background';
 import { ButtonProps } from '@/types/button';
 import { BackgroundProps } from '@/components/atoms/Background/Background';
 import Typography from '@/components/atoms/Typography';
+import mq from '@/styles/mq';
 
 interface Props {
   background?: BackgroundProps;
@@ -20,12 +21,22 @@ interface Props {
 }
 
 const Root = styled(Container)<Props>`
+  padding: 0;
   margin-top: ${({ theme }) => theme.spacing(10)};
+
+  ${mq('md')} {
+    padding: 0 3rem;
+  }
+`;
+const Text = styled(Typography)`
+  margin-top: ${({ theme }) => theme.spacing(2)};
+  ${mq('md')} {
+    margin-top: ${({ theme }) => theme.spacing(1)};
+  }
 `;
 const ButtonStyled = styled(Button)`
   margin-top: ${({ theme }) => theme.spacing(2.5)};
 `;
-
 const contentContainer = css`
   padding: 10rem;
 `;
@@ -40,13 +51,17 @@ const HomeQuestion = ({
 
   return (
     <Root maxWidth={1024}>
-      <Background classes={{ content: contentContainer }} {...background}>
+      <Background
+        classes={{ content: contentContainer }}
+        overlay
+        {...background}
+      >
         <Typography color="white" variant="h2">
           {title}
         </Typography>
-        <Typography variant="h4" color="white">
+        <Text variant="h4" color="white">
           {text}
-        </Typography>
+        </Text>
         <ButtonStyled
           variant="outlined"
           color="white"
