@@ -50,7 +50,11 @@ const Root = styled.div<Props>`
       align-items: ${alignItems};
     `}
 
-  ${({ xs }) => xs && renderContainerSize(xs)}
+  ${({ xxs }) => xxs && renderContainerSize(xxs)}
+
+  ${mq('xs')} {
+    ${({ xs }) => xs && renderContainerSize(xs)}
+  }
 
   ${mq('sm')} {
     ${({ sm }) => sm && renderContainerSize(sm)}
@@ -66,6 +70,10 @@ const Root = styled.div<Props>`
 
   ${mq('xl')} {
     ${({ xl }) => xl && renderContainerSize(xl)}
+  }
+
+  ${mq('xxl')} {
+    ${({ xxl }) => xxl && renderContainerSize(xxl)}
   }
 `;
 

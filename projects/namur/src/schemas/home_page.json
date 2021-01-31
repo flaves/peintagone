@@ -107,6 +107,76 @@
       }
     }
   },
+  "Team": {
+    "team_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "team section title",
+        "placeholder": "Title"
+      }
+    },
+    "team_section_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "team section text",
+        "placeholder": "Text"
+      }
+    },
+    "team_section_side_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "team section side image"
+      }
+    },
+    "team_members": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "role": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "role",
+              "placeholder": "Role"
+            }
+          },
+          "name": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "name",
+              "placeholder": "Name"
+            }
+          },
+          "description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item, rtl",
+              "allowTargetBlank": true,
+              "label": "description",
+              "placeholder": "description"
+            }
+          }
+        },
+        "label": "team members"
+      }
+    }
+  },
   "Map": {
     "map_section_title": {
       "type": "StructuredText",

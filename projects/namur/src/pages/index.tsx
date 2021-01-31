@@ -17,8 +17,9 @@ export const query = graphql`
       data {
         ...HomeHero
         ...HomeProducts
-        ...HomeQuestion
+        ...HomeTeam
         ...HomeMap
+        ...HomeQuestion
       }
     }
   }

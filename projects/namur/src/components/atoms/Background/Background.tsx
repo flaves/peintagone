@@ -9,6 +9,7 @@ import mq from '@/styles/mq';
 interface ClassesProps {
   root?: SerializedStyles;
   background?: SerializedStyles;
+  backgroundMobile?: SerializedStyles;
   content?: SerializedStyles;
 }
 
@@ -17,6 +18,8 @@ export interface BackgroundProps {
   backgroundAlt?: string | null;
   mobileUrl?: string | null;
   mobileAlt?: string | null;
+  height?: number;
+  width?: number;
   sizes?: string | null;
   fit?: 'cover' | 'contain';
   children?: React.ReactNode;
@@ -27,6 +30,8 @@ export interface BackgroundProps {
 const Root = styled.div<BackgroundProps>`
   position: relative;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 `;
 const StyledImg = styled(Img)`
   position: absolute;
@@ -38,14 +43,14 @@ const StyledImg = styled(Img)`
 const DesktopImg = styled(StyledImg)`
   display: none;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: block;
   }
 `;
 const MobileImg = styled(StyledImg)`
   display: block;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: none;
   }
 `;
@@ -78,6 +83,8 @@ const Background = ({
   backgroundAlt,
   mobileUrl,
   mobileAlt,
+  height,
+  width,
   sizes,
   fit,
   children,
@@ -89,6 +96,7 @@ const Background = ({
 
   const rootClassName = classes?.root;
   const backgroundClassName = classes?.background;
+  const backgroundMobileClassName = classes?.backgroundMobile;
   const contentClassName = classes?.content;
 
   return (
@@ -96,6 +104,8 @@ const Background = ({
       <DesktopImg
         src={backgroundUrl}
         alt={backgroundAlt || ''}
+        height={height}
+        width={width}
         sizes={sizes || '100vw'}
         css={[
           !mobileUrl && displayOnMobile,
@@ -108,7 +118,10 @@ const Background = ({
         <MobileImg
           src={mobileUrl}
           alt={mobileAlt || ''}
+          height={height}
+          width={width}
           sizes={sizes || '100vw'}
+          css={[fit === 'contain' && fitContain, backgroundMobileClassName]}
           {...rest}
         />
       )}

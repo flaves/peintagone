@@ -34,14 +34,14 @@ const Root = styled(Container)<Props>`
   margin-top: ${({ theme }) => theme.spacing(5)};
   text-align: center;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     margin-top: ${({ theme }) => theme.spacing(25)};
     text-align: left;
   }
 `;
 const ProductsText = styled(Typography)`
   display: none;
-  ${mq('md')} {
+  ${mq('lg')} {
     display: block;
   }
 `;
@@ -50,7 +50,7 @@ const ProductsContainer = styled.div`
   padding-left: ${({ theme }) => theme.spacing(2)};
   padding-right: ${({ theme }) => theme.spacing(2)};
 
-  ${mq('md')} {
+  ${mq('lg')} {
     margin-top: ${({ theme }) => theme.spacing(3)};
     padding-left: 0;
     padding-right: 0;
@@ -75,7 +75,7 @@ const ArrowStyled = styled(Arrow)`
   top: 100px;
   left: -5%;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: none;
   }
 `;
@@ -115,7 +115,7 @@ const HomeProducts = ({ title, text, products }: Props): JSX.Element => {
     [breakpoints.sm]: {
       items: 3,
     },
-    [breakpoints.md]: {
+    [breakpoints.lg]: {
       items: 5,
     },
   };

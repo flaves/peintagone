@@ -17,10 +17,10 @@ const Root = styled.div<Props>`
   margin: auto;
   padding: 0 2rem;
 
-  max-width: ${({ maxWidth = 'md' }) =>
+  max-width: ${({ maxWidth = 'lg' }) =>
     typeof maxWidth === 'string' ? setSize(maxWidth) : maxWidth}px;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     padding: 0 3rem;
   }
 `;

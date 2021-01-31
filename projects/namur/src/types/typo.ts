@@ -7,6 +7,8 @@ type TypoType =
   | `h6`
   | `textLg`
   | `textMd`
-  | `textSm`;
+  | `textSm`
+  | `textDefault`
+  | `textXs`;
 
 export default TypoType;

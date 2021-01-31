@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomeTeam from '@/container/Home/HomeTeam';
 import HomeMap from '@/container/Home/HomeMap';
 import HomeQuestion from '@/container/Home/HomeQuestion';
 
@@ -21,6 +22,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    team_section_title,
+    team_section_text,
+    team_section_side_image,
+    team_members,
     map_section_title,
     question_background,
     question_mobile_background,
@@ -56,6 +61,24 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     })),
   };
 
+  const TeamProps = {
+    title: <RichText render={team_section_title?.raw} />,
+    text: <RichText render={team_section_text?.raw} />,
+    image: {
+      url: team_section_side_image?.url,
+      alt: team_section_side_image?.alt,
+    },
+    members: team_members?.map((member: any) => ({
+      image: {
+        url: member?.image?.url,
+        alt: member?.image?.alt,
+      },
+      role: <RichText render={member?.role?.raw} />,
+      name: <RichText render={member?.name?.raw} />,
+      description: <RichText render={member?.description?.raw} />,
+    })),
+  };
+
   const MapProps = {
     title: <RichText render={map_section_title?.raw} />,
   };
@@ -80,6 +103,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomeTeam {...TeamProps} />
       <HomeMap {...MapProps} />
       <HomeQuestion {...QuestionProps} />
     </>

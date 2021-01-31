@@ -25,6 +25,18 @@ interface Props {
 
 const Root = styled.div`
   margin-top: ${({ theme }) => theme.spacing(5)};
+  padding-bottom: ${({ theme }) => theme.spacing(5)};
+`;
+const RootContainer = styled(Container)`
+  ${mq('sm')} {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ${mq('lg')} {
+    max-width: 100%;
+  }
 `;
 const LinksContainer = styled.div`
   display: flex;
@@ -56,7 +68,7 @@ const ColumnsContainer = styled(Grid)`
     }
   }
 
-  ${mq('md')} {
+  ${mq('lg')} {
     justify-content: space-between;
 
     ${Column}:not(:first-of-type) {
@@ -110,7 +122,7 @@ const LegalLinks = styled(Link)`
     }
   }
 
-  ${mq('md')} {
+  ${mq('lg')} {
     padding-right: ${({ theme }) => theme.spacing(7)};
   }
 `;
@@ -163,20 +175,20 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
   return (
     <Root>
       <Separator />
-      <Container>
+      <RootContainer>
         <ColumnsContainer container>
-          <Column container md={2} sm={6} xs={12}>
+          <Column container lg={2} sm={6} xxs={12}>
             <LinksContainer>{Links}</LinksContainer>
           </Column>
-          <Column container md={3} sm={6} xs={12}>
+          <Column container lg={3} sm={6} xxs={12}>
             <TypographyStyled as="div">{email}</TypographyStyled>
             <TypographyStyled as="div">{phone}</TypographyStyled>
           </Column>
-          <Column container md={3} sm={6} xs={12}>
+          <Column container lg={3} sm={6} xxs={12}>
             <TypographyStyled as="div">{address}</TypographyStyled>
             <Schedule as="div">{schedule}</Schedule>
           </Column>
-          <Column container md={3} sm={6} xs={12}>
+          <Column container lg={3} sm={6} xxs={12}>
             <TypographyStyled>
               Inscrivez-vous à notre newsletter
             </TypographyStyled>
@@ -196,7 +208,7 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
             </TypographyStyled>
           </Copyright>
         </BottomContainer>
-      </Container>
+      </RootContainer>
     </Root>
   );
 };

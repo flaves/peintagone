@@ -12,6 +12,8 @@ import BlueArrow from '@/svg/BlueArrow.svg';
 import Pentagon from '@/svg/Pentagon.svg';
 
 import { ImageType } from '@/types/image';
+import { faArrowDown } from '@fortawesome/pro-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface Props {
   title?: React.ReactNode;
@@ -30,14 +32,18 @@ const ContentContainer = styled(Grid)`
   padding: 0;
 
   ${mq('md')} {
-    max-width: ${({ theme }) => theme.breakpoints.md}px;
     text-align: left;
+    margin-top: ${({ theme }) => theme.spacing(8)};
+  }
+
+  ${mq('lg')} {
+    max-width: ${({ theme }) => theme.breakpoints.lg}px;
     margin: ${({ theme }) => theme.spacing(10)} auto auto;
   }
 `;
 const TextGrid = styled(Grid)`
   // Blue arrow relative to container on large screen
-  ${mq('xl')} {
+  ${mq('xxl')} {
     position: relative;
   }
 `;
@@ -46,28 +52,46 @@ const TextContainer = styled.div`
   padding-left: ${({ theme }) => theme.spacing(3)};
   padding-right: ${({ theme }) => theme.spacing(3)};
   z-index: ${({ theme }) => theme.zIndex.content};
+
+  ${mq('md')} {
+    padding-left: ${({ theme }) => theme.spacing(15)};
+  }
+
+  ${mq('lg')} {
+    padding-left: ${({ theme }) => theme.spacing(3)};
+  }
+`;
+const Title = styled(Typography)`
+  max-width: 20ch;
+  margin: auto;
 `;
 const HeroText = styled(Typography)`
   display: none;
   margin-top: ${({ theme }) => theme.spacing(1)};
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: block;
   }
 `;
 const HeroTextMobile = styled(Typography)`
   display: block;
-  margin-top: ${({ theme }) => theme.spacing(1)};
+  margin-top: ${({ theme }) => theme.spacing(2)};
   margin-bottom: ${({ theme }) => theme.spacing(3)};
 
-  ${mq('md')} {
+  ${mq('sm')} {
+    max-width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ${mq('lg')} {
     display: none;
   }
 `;
 const BlueArrowStyled = styled(BlueArrow)`
   display: none;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: block;
     position: absolute;
     top: -80px;
@@ -78,7 +102,7 @@ const BlueArrowStyled = styled(BlueArrow)`
   }
 `;
 const ImageGrid = styled(Grid)`
-  ${mq('xl')} {
+  ${mq('xxl')} {
     position: relative;
   }
 `;
@@ -88,6 +112,12 @@ const PentagonStyled = styled(Pentagon)`
   ${mq('md')} {
     display: block;
     position: absolute;
+    top: -65%;
+    right: 50px;
+    height: 300px;
+  }
+
+  ${mq('lg')} {
     top: -40%;
     right: 50px;
     height: 600px;
@@ -100,14 +130,20 @@ const ImageContainer = styled(Grid)`
   z-index: ${({ theme }) => theme.zIndex.content};
 
   ${mq('md')} {
-    height: 760px;
-    max-width: 650px;
+    height: 480px;
+    max-width: 450px;
     position: absolute;
-    top: -25%;
-    right: 0;
+    top: -55%;
+    right: -5%;
   }
 
-  ${mq('xl')} {
+  ${mq('lg')} {
+    top: -25%;
+    height: 760px;
+    max-width: 650px;
+  }
+
+  ${mq('xxl')} {
     height: 600px;
   }
 `;
@@ -125,22 +161,34 @@ const HeroImage = styled(Img)`
     clip-path: polygon(59% 0, 100% 24%, 100% 100%, 21% 100%, 0 29%);
   }
 `;
+const ArrowContainer = styled(Grid)`
+  display: none;
+  margin-top: ${({ theme }) => theme.spacing(6.5)};
+
+  ${mq('md')} {
+    display: flex;
+  }
+`;
+const Icon = styled(FontAwesomeIcon)`
+  color: ${({ theme }) => theme.color.primary.main};
+  font-size: 2.4rem;
+`;
 
 const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
   return (
     <Root>
       <ContentContainer container>
-        <TextGrid md={6} xs={12}>
+        <TextGrid lg={6} md={7} xxs={12}>
           <BlueArrowStyled />
           <TextContainer>
-            <Typography as="div" variant="h1">
+            <Title as="div" variant="h1">
               {title}
-            </Typography>
+            </Title>
             <HeroText variant="textLg">{text}</HeroText>
             <HeroTextMobile variant="textLg">{textMobile}</HeroTextMobile>
           </TextContainer>
         </TextGrid>
-        <ImageGrid md={6} xs={12}>
+        <ImageGrid lg={6} md={5} xxs={12}>
           <PentagonStyled />
           {image && (
             <ImageContainer>
@@ -152,6 +200,9 @@ const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
             </ImageContainer>
           )}
         </ImageGrid>
+        <ArrowContainer container justifyContent="center" xs={12}>
+          <Icon icon={faArrowDown} />
+        </ArrowContainer>
       </ContentContainer>
     </Root>
   );
