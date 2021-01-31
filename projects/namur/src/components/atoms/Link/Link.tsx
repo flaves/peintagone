@@ -26,7 +26,7 @@ const LinkComponent = (
   // If internal
   return (
     // @ts-ignore
-    <GatsbyLink ref={ref} to={`/${to}`} target={target} {...rest}>
+    <GatsbyLink ref={ref} to={to} target={target} {...rest}>
       {children}
     </GatsbyLink>
   );

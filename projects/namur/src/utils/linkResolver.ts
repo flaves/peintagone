@@ -1,6 +1,6 @@
 // @ts-ignore
-const linkResolver = ({ node, key, value }) => (doc): string => {
-  return `/${doc.uid}`;
+const linkResolver = ({ node, key, value }) => (doc) => {
+  return `${doc.uid}`;
 };
 
 module.exports = linkResolver;

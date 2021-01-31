@@ -9,12 +9,7 @@ interface Props {
 const ContactContainer = ({ data }: Props): JSX.Element => {
   const { title, text } = data?.prismicContactPage?.data || {};
 
-  return (
-    <div>
-      {title}
-      {text}
-    </div>
-  );
+  return <div>Contact</div>;
 };
 
 export default ContactContainer;
