@@ -6,7 +6,7 @@ import { Property } from 'csstype';
 import mq from '@/styles/mq';
 import theme from '@/styles/theme';
 
-import setSpacing from '@/utils/setSpacing';
+import setSpacing from '@/utils/style/setSpacing';
 
 import { UtilityResponsiveProps } from '@/types/utility';
 

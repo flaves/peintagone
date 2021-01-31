@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 import mq from '@/styles/mq';
-import setColor from '@/utils/setColor';
+import setColor from '@/utils/style/setColor';
 
 import UtilityProps from '@/types/utility';
 import TypoType from '@/types/typo';
@@ -43,6 +43,15 @@ const setTypoStyle = (variant?: TypoType) => {
 
         ${mq('md')} {
           font-size: 2.4rem;
+        }
+      `;
+    case 'h4':
+      return css`
+        font-size: 1.6rem;
+        font-weight: 600;
+
+        ${mq('md')} {
+          font-size: 2rem;
         }
       `;
     case 'textLg':

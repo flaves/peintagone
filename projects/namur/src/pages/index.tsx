@@ -15,36 +15,9 @@ export const query = graphql`
   query HomePage {
     prismicHomePage {
       data {
-        hero_title {
-          raw
-        }
-        hero_text {
-          raw
-        }
-        hero_text_mobile {
-          raw
-        }
-        hero_image {
-          url
-          alt
-        }
-        product_section_title {
-          raw
-        }
-        product_section_text {
-          raw
-        }
-        products {
-          image {
-            url
-            alt
-          }
-          name
-          link {
-            url
-            target
-          }
-        }
+        ...HomeHero
+        ...HomeProducts
+        ...HomeQuestion
       }
     }
   }

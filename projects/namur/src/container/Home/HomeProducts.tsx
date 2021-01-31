@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import AliceCarousel from 'react-alice-carousel';
@@ -137,5 +138,27 @@ const HomeProducts = ({ title, text, products }: Props): JSX.Element => {
     </Root>
   );
 };
+
+export const query = graphql`
+  fragment HomeProducts on PrismicHomePageDataType {
+    product_section_title {
+      raw
+    }
+    product_section_text {
+      raw
+    }
+    products {
+      image {
+        url
+        alt
+      }
+      name
+      link {
+        url
+        target
+      }
+    }
+  }
+`;
 
 export default HomeProducts;

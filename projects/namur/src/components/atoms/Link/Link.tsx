@@ -5,6 +5,9 @@ const LinkComponent = (
   { to, target, children, ...rest }: GatsbyLinkProps<Record<string, unknown>>,
   ref: React.LegacyRef<HTMLAnchorElement>,
 ): JSX.Element => {
+  // If no url
+  if (!to) return <div />;
+
   // If external
   if (to.indexOf('http') !== -1) {
     return (
@@ -23,7 +26,7 @@ const LinkComponent = (
   // If internal
   return (
     // @ts-ignore
-    <GatsbyLink ref={ref} to={`/${to}`} target={target} {...rest}>
+    <GatsbyLink ref={ref} to={to} target={target} {...rest}>
       {children}
     </GatsbyLink>
   );

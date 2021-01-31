@@ -27,7 +27,7 @@ const reset = css`
     font-size: 1.6rem;
     margin: 0;
     padding: 0;
-    color: ${textPrimary};
+    color: ${textPrimary.main};
     font-weight: 600;
   }
 
@@ -69,10 +69,10 @@ const reset = css`
 
   a {
     text-decoration: none;
-    color: ${textPrimary};
+    color: ${textPrimary.main};
 
     &:hover {
-      color: ${primary};
+      color: ${primary.main};
     }
   }
 `;

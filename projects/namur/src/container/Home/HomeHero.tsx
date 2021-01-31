@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
 import Grid from '@/components/atoms/Grid';
@@ -155,5 +156,23 @@ const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
     </Root>
   );
 };
+
+export const query = graphql`
+  fragment HomeHero on PrismicHomePageDataType {
+    hero_title {
+      raw
+    }
+    hero_text {
+      raw
+    }
+    hero_text_mobile {
+      raw
+    }
+    hero_image {
+      url
+      alt
+    }
+  }
+`;
 
 export default HomeHero;

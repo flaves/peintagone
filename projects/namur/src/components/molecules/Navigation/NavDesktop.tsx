@@ -28,7 +28,7 @@ const NavGrid = styled(Grid)`
 
 const NavDesktop = ({ links }: Props): JSX.Element => {
   const Links = links.map((link, index) => (
-    <LinkStyled key={index.toString()} to={link.url}>
+    <LinkStyled key={index.toString()} to={link.url || ''}>
       {link.label}
     </LinkStyled>
   ));

@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
 import Link from '@/components/atoms/Link';
@@ -23,8 +24,7 @@ interface Props {
 }
 
 const Root = styled.div`
-  // @todo set to 5
-  margin-top: ${({ theme }) => theme.spacing(30)};
+  margin-top: ${({ theme }) => theme.spacing(5)};
 `;
 const LinksContainer = styled.div`
   display: flex;
@@ -140,21 +140,25 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
     console.log(data);
   };
 
-  const Links =
-    links &&
-    links.map((link, index) => (
-      <LinkStyled key={index.toString()} to={link.url} target={link.target}>
-        {link.label}
-      </LinkStyled>
-    ));
+  const Links = links?.map((link, index) => (
+    <LinkStyled
+      key={index.toString()}
+      to={link?.url || ''}
+      target={link?.target || ''}
+    >
+      {link?.label}
+    </LinkStyled>
+  ));
 
-  const Legals =
-    legals &&
-    legals.map((link, index) => (
-      <LegalLinks key={index.toString()} to={link.url} target={link.target}>
-        {link.label}
-      </LegalLinks>
-    ));
+  const Legals = legals?.map((link, index) => (
+    <LegalLinks
+      key={index.toString()}
+      to={link?.url || ''}
+      target={link?.target || ''}
+    >
+      {link?.label}
+    </LegalLinks>
+  ));
 
   return (
     <Root>
@@ -196,5 +200,29 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
     </Root>
   );
 };
+
+export const query = graphql`
+  fragment Footer on PrismicFooter {
+    data {
+      social_media {
+        icon {
+          alt
+          url
+        }
+        link {
+          url
+          target
+        }
+      }
+      legal_links {
+        label
+        link {
+          url
+          target
+        }
+      }
+    }
+  }
+`;
 
 export default Footer;

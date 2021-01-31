@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomeQuestion from '@/container/Home/HomeQuestion';
 
 import { HomePageQuery } from '../../../graphql-types';
 
@@ -19,6 +20,12 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    question_background,
+    question_mobile_background,
+    question_section_title,
+    question_section_text,
+    question_button_label,
+    question_button_link,
   } = data?.prismicHomePage?.data || {};
 
   const HeroProps = {
@@ -47,10 +54,27 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     })),
   };
 
+  const QuestionProps = {
+    background: {
+      backgroundUrl: question_background?.url,
+      backgroundAlt: question_background?.alt,
+      mobileUrl: question_mobile_background?.url,
+      mobileAlt: question_mobile_background?.alt,
+    },
+    title: <RichText render={question_section_title?.raw} />,
+    text: <RichText render={question_section_text?.raw} />,
+    button: {
+      label: question_button_label,
+      link: question_button_link?.url,
+      target: question_button_link?.target,
+    },
+  };
+
   return (
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomeQuestion {...QuestionProps} />
     </>
   );
 };

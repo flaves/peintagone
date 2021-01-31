@@ -8,6 +8,7 @@ import Container from '@/components/atoms/Container';
 import mq from '@/styles/mq';
 
 import LinkProps from '@/types/link';
+import { graphql } from 'gatsby';
 
 interface Props {
   links?: LinkProps[];
@@ -51,5 +52,19 @@ const Header = ({ links }: Props): JSX.Element => {
     </Container>
   );
 };
+
+export const query = graphql`
+  fragment Navigation on PrismicNavigation {
+    data {
+      links {
+        label
+        link {
+          url
+          target
+        }
+      }
+    }
+  }
+`;
 
 export default Header;

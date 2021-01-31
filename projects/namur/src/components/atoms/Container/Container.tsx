@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 
 import mq from '@/styles/mq';
 
-import setSize from '@/utils/setSize';
+import setSize from '@/utils/style/setSize';
 
 import SizeType from '@/types/size';
 
 interface Props {
   className?: string;
-  maxWidth?: SizeType;
+  maxWidth?: SizeType | number;
   children: React.ReactNode;
 }
 
@@ -17,7 +17,8 @@ const Root = styled.div<Props>`
   margin: auto;
   padding: 0 2rem;
 
-  max-width: ${({ maxWidth = 'md' }) => setSize(maxWidth)}px;
+  max-width: ${({ maxWidth = 'md' }) =>
+    typeof maxWidth === 'string' ? setSize(maxWidth) : maxWidth}px;
 
   ${mq('md')} {
     padding: 0 3rem;
