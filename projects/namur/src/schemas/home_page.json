@@ -107,6 +107,39 @@
       }
     }
   },
+  "Partners": {
+    "partners_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "partners section title",
+        "placeholder": "Title"
+      }
+    },
+    "partners": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "name",
+              "placeholder": "Name"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "link",
+              "placeholder": "Link"
+            }
+          }
+        },
+        "label": "partners"
+      }
+    }
+  },
   "Team": {
     "team_section_title": {
       "type": "StructuredText",

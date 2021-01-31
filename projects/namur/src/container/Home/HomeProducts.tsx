@@ -84,11 +84,11 @@ const ArrowNextStyled = styled(ArrowStyled)`
   right: -5%;
 `;
 
-const Product = ({ image, link, name }: ProductProps): JSX.Element => {
+const Product = ({ image, link, name, ...rest }: ProductProps): JSX.Element => {
   if (!link?.url) return <div />;
 
   return (
-    <ProductLink to={link.url} target={link?.target || '_blank'}>
+    <ProductLink to={link.url} target={link?.target || '_blank'} {...rest}>
       <ProductImage
         src={image?.url}
         alt={image?.alt}
@@ -103,9 +103,15 @@ const Product = ({ image, link, name }: ProductProps): JSX.Element => {
 
 const HomeProducts = ({ title, text, products }: Props): JSX.Element => {
   const { breakpoints } = useTheme();
+  const handleDragStart = (e: React.MouseEvent) => e.preventDefault();
 
   const Products = products?.map((product, index) => (
-    <Product key={index.toString()} {...product} />
+    <Product
+      key={index.toString()}
+      // @ts-ignore
+      onDragStart={handleDragStart}
+      {...product}
+    />
   ));
 
   const carouselResponsive = {

@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomePartners from '@/container/Home/HomePartners';
 import HomeTeam from '@/container/Home/HomeTeam';
 import HomeMap from '@/container/Home/HomeMap';
 import HomeQuestion from '@/container/Home/HomeQuestion';
@@ -22,6 +23,8 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    partners_section_title,
+    partners,
     team_section_title,
     team_section_text,
     team_section_side_image,
@@ -58,6 +61,15 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
         url: product?.link?.url,
         target: product?.link?.target,
       },
+    })),
+  };
+
+  const PartnersProps = {
+    title: <RichText render={partners_section_title?.raw} />,
+    partners: partners?.map((partner: any) => ({
+      name: partner?.name,
+      link: partner?.link?.url,
+      target: partner?.link?.target,
     })),
   };
 
@@ -103,6 +115,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomePartners {...PartnersProps} />
       <HomeTeam {...TeamProps} />
       <HomeMap {...MapProps} />
       <HomeQuestion {...QuestionProps} />
