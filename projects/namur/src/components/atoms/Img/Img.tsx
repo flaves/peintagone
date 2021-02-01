@@ -9,7 +9,7 @@ interface Props {
   src?: string | null;
   alt?: string | null;
   className?: string;
-  sizes?: string;
+  sizes?: string | null;
   width?: number;
   height?: number;
 }
@@ -32,7 +32,7 @@ const Img = ({
       // @ts-ignore
       alt={alt}
       src={src}
-      sizes={sizes}
+      sizes={sizes || '100vw'}
       attributeConfig={{
         src: 'data-src',
         srcSet: 'data-srcset',

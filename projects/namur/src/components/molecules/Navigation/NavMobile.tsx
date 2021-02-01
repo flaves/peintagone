@@ -23,7 +23,7 @@ interface Props {
 const Root = styled.div`
   display: block;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: none;
   }
 `;
@@ -57,6 +57,8 @@ const FabButtonStyled = styled(FabButton)`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: ${({ theme }) => theme.zIndex.fixed};
+  box-shadow: 0 4px 8px 0 #393939;
 `;
 const ButtonText = styled.span`
   font-size: 1.2rem;
@@ -75,10 +77,20 @@ const MenuText = styled.p`
 `;
 const LinksContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing(3)};
+
+  ${mq('sm')} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const CompanyInfosContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing(4)};
   line-height: 2;
+
+  ${mq('sm')} {
+    text-align: center;
+  }
 `;
 const show = css`
   transform: translateX(0);

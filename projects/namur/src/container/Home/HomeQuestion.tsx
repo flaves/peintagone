@@ -22,23 +22,48 @@ interface Props {
 
 const Root = styled(Container)<Props>`
   padding: 0;
-  margin-top: ${({ theme }) => theme.spacing(10)};
 
-  ${mq('md')} {
+  ${mq('lg')} {
+    margin-top: ${({ theme }) => theme.spacing(10)};
     padding: 0 3rem;
+  }
+`;
+const Title = styled(Typography)`
+  text-align: center;
+
+  ${mq('lg')} {
+    text-align: left;
   }
 `;
 const Text = styled(Typography)`
   margin-top: ${({ theme }) => theme.spacing(2)};
-  ${mq('md')} {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60ch;
+
+  ${mq('lg')} {
+    text-align: left;
     margin-top: ${({ theme }) => theme.spacing(1)};
+  }
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  ${mq('lg')} {
+    justify-content: flex-start;
   }
 `;
 const ButtonStyled = styled(Button)`
   margin-top: ${({ theme }) => theme.spacing(2.5)};
 `;
 const contentContainer = css`
-  padding: 10rem;
+  padding: 5rem;
+
+  ${mq('lg')} {
+    padding: 10rem;
+  }
 `;
 
 const HomeQuestion = ({
@@ -50,26 +75,28 @@ const HomeQuestion = ({
   const { label, link, target } = button || {};
 
   return (
-    <Root maxWidth={1024}>
+    <Root>
       <Background
         classes={{ content: contentContainer }}
         overlay
         {...background}
       >
-        <Typography color="white" variant="h2">
+        <Title color="white" variant="h2">
           {title}
-        </Typography>
+        </Title>
         <Text variant="h4" color="white">
           {text}
         </Text>
-        <ButtonStyled
-          variant="outlined"
-          color="white"
-          as={Link}
-          {...{ to: link, target }}
-        >
-          {label}
-        </ButtonStyled>
+        <ButtonContainer>
+          <ButtonStyled
+            variant="outlined"
+            color="white"
+            as={Link}
+            {...{ to: link, target }}
+          >
+            {label}
+          </ButtonStyled>
+        </ButtonContainer>
       </Background>
     </Root>
   );

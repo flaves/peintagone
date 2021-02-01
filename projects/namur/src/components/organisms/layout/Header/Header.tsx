@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
 import { NavDesktop, NavMobile } from '@/components/molecules/Navigation';
@@ -8,7 +9,6 @@ import Container from '@/components/atoms/Container';
 import mq from '@/styles/mq';
 
 import LinkProps from '@/types/link';
-import { graphql } from 'gatsby';
 
 interface Props {
   links?: LinkProps[];
@@ -20,7 +20,7 @@ const NavContainer = styled.div`
   align-items: center;
   margin-top: ${({ theme }) => theme.spacing(2.5)};
 
-  ${mq('md')} {
+  ${mq('lg')} {
     justify-content: flex-start;
   }
 `;
@@ -29,7 +29,7 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     justify-content: flex-start;
     margin-right: ${({ theme }) => theme.spacing(5)};
   }

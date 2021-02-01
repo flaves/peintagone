@@ -2,14 +2,16 @@ import { breakpoints } from '@/styles/theme';
 
 import SizeType from '@/types/size';
 
-const { xs, sm, md, lg, xl } = breakpoints;
+const { xxs, xs, sm, md, lg, xl, xxl } = breakpoints;
 
 const sizesMap: Record<SizeType, number> = {
+  xxs,
   xs,
   sm,
   md,
   lg,
   xl,
+  xxl,
 };
 
 const setSize = (size: SizeType): number => sizesMap[size];

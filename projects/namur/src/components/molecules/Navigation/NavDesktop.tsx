@@ -21,7 +21,7 @@ const LinkStyled = styled(Link)`
 const NavGrid = styled(Grid)`
   display: none;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: block;
   }
 `;

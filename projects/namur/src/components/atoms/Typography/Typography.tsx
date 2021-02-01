@@ -23,7 +23,7 @@ const setTypoStyle = (variant?: TypoType) => {
         font-size: 3.6rem;
         font-weight: 800;
 
-        ${mq('md')} {
+        ${mq('lg')} {
           font-size: 6.4rem;
         }
       `;
@@ -32,7 +32,7 @@ const setTypoStyle = (variant?: TypoType) => {
         font-size: 3.2rem;
         font-weight: 800;
 
-        ${mq('md')} {
+        ${mq('lg')} {
           font-size: 4.8rem;
         }
       `;
@@ -41,7 +41,7 @@ const setTypoStyle = (variant?: TypoType) => {
         font-size: 1.8rem;
         font-weight: 800;
 
-        ${mq('md')} {
+        ${mq('lg')} {
           font-size: 2.4rem;
         }
       `;
@@ -50,7 +50,7 @@ const setTypoStyle = (variant?: TypoType) => {
         font-size: 1.6rem;
         font-weight: 600;
 
-        ${mq('md')} {
+        ${mq('lg')} {
           font-size: 2rem;
         }
       `;
@@ -60,7 +60,7 @@ const setTypoStyle = (variant?: TypoType) => {
         font-weight: 500;
         opacity: 0.6;
 
-        ${mq('md')} {
+        ${mq('lg')} {
           font-size: 2.4rem;
         }
       `;
@@ -71,6 +71,18 @@ const setTypoStyle = (variant?: TypoType) => {
         opacity: 0.6;
       `;
     case 'textSm':
+      return css`
+        font-size: 1.8rem;
+        font-weight: 400;
+        opacity: 0.6;
+      `;
+    case 'textDefault':
+      return css`
+        font-size: 1.6rem;
+        font-weight: 400;
+        opacity: 0.6;
+      `;
+    case 'textXs':
       return css`
         font-size: 1.4rem;
         font-weight: 400;

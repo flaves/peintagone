@@ -12,17 +12,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Grid from '@/components/atoms/Grid';
 import Typography from '@/components/atoms/Typography';
+import Container from '@/components/atoms/Container';
 
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
 import mq from '@/styles/mq';
-import { css } from '@emotion/react';
 
 interface Props {
   title?: React.ReactNode;
 }
 
-const Root = styled(Grid)<Props>``;
+const Root = styled(Container)<Props>`
+  padding: 0;
+
+  ${mq('lg')} {
+    padding: 0;
+  }
+`;
 const CompanyInfos = styled(Grid)`
   background-color: ${({ theme }) => theme.color.primary.main};
   padding-top: ${({ theme }) => theme.spacing(4)};
@@ -37,7 +43,7 @@ const CompanyInfos = styled(Grid)`
     padding-right: ${({ theme }) => theme.spacing(3)};
   }
 
-  ${mq('md')} {
+  ${mq('lg')} {
     padding-top: ${({ theme }) => theme.spacing(4.2)};
     padding-bottom: ${({ theme }) => theme.spacing(4.2)};
     padding-left: ${({ theme }) => theme.spacing(10)};
@@ -47,7 +53,7 @@ const CompanyInfos = styled(Grid)`
 const Title = styled(Typography)`
   text-align: center;
 
-  ${mq('md')} {
+  ${mq('lg')} {
     text-align: left;
   }
 `;
@@ -61,7 +67,7 @@ const InfoItem = styled.li`
   margin-top: ${({ theme }) => theme.spacing(4)};
   color: ${({ theme }) => theme.color.white.main};
 
-  ${mq('md')} {
+  ${mq('lg')} {
     flex-direction: row;
   }
 `;
@@ -72,7 +78,7 @@ const ItemText = styled(Typography)`
   text-align: center;
   margin-top: ${({ theme }) => theme.spacing(1.5)};
 
-  ${mq('md')} {
+  ${mq('lg')} {
     text-align: left;
     margin-top: 0;
     margin-left: ${({ theme }) => theme.spacing(3)};
@@ -87,7 +93,7 @@ const MapContainer = styled(Grid)`
     height: 645px;
   }
 
-  ${mq('md')} {
+  ${mq('lg')} {
     display: flex;
     position: relative;
     height: 545px;
@@ -128,41 +134,43 @@ const HomeMap = ({ title }: Props): JSX.Element => {
   }, []);
 
   return (
-    <Root container alignItems="stretch">
-      <CompanyInfos md={5} sm={6} xs={12}>
-        <Title variant="h2" color="white">
-          {title}
-        </Title>
-        <InfosContainer>
-          <InfoItem>
-            <Icon icon={faMapMarkerCheck} />
-            <ItemText variant="h3" color="white">
-              {address}
-            </ItemText>
-          </InfoItem>
-          <InfoItem>
-            <Icon icon={faClock} />
-            <ItemText variant="h3" color="white">
-              {schedule}
-            </ItemText>
-          </InfoItem>
-          <InfoItem>
-            <Icon icon={faEnvelopeOpen} />
-            <ItemText variant="h3" color="white">
-              {email}
-            </ItemText>
-          </InfoItem>
-          <InfoItem>
-            <Icon icon={faPhone} />
-            <ItemText variant="h3" color="white">
-              {phone}
-            </ItemText>
-          </InfoItem>
-        </InfosContainer>
-      </CompanyInfos>
-      <MapContainer md={7} sm={6}>
-        <Map ref={mapContainer} />
-      </MapContainer>
+    <Root maxWidth="xxl">
+      <Grid container alignItems="stretch">
+        <CompanyInfos lg={5} sm={6} xxs={12}>
+          <Title variant="h2" color="white">
+            {title}
+          </Title>
+          <InfosContainer>
+            <InfoItem>
+              <Icon icon={faMapMarkerCheck} />
+              <ItemText variant="h3" color="white">
+                {address}
+              </ItemText>
+            </InfoItem>
+            <InfoItem>
+              <Icon icon={faClock} />
+              <ItemText variant="h3" color="white">
+                {schedule}
+              </ItemText>
+            </InfoItem>
+            <InfoItem>
+              <Icon icon={faEnvelopeOpen} />
+              <ItemText variant="h3" color="white">
+                {email}
+              </ItemText>
+            </InfoItem>
+            <InfoItem>
+              <Icon icon={faPhone} />
+              <ItemText variant="h3" color="white">
+                {phone}
+              </ItemText>
+            </InfoItem>
+          </InfosContainer>
+        </CompanyInfos>
+        <MapContainer lg={7} sm={6}>
+          <Map ref={mapContainer} />
+        </MapContainer>
+      </Grid>
     </Root>
   );
 };

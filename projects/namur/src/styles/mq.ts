@@ -3,7 +3,11 @@ import SizeType from '@/types/size';
 
 const { breakpoints }: { breakpoints: Record<string, number> } = theme;
 
-const mq = (value: SizeType): string | number => {
+const mq = (value: SizeType | number): string | number => {
+  if (typeof value === 'number') {
+    return `@media (min-width: ${value}px)`;
+  }
+
   const bpArray = Object.keys(breakpoints).map((key) => [
     key,
     breakpoints[key],

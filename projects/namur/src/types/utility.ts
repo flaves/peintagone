@@ -21,11 +21,13 @@ export interface UtilityProps {
 }
 
 export interface UtilityResponsiveProps extends UtilityProps {
+  xxs?: number;
   xs?: number;
   sm?: number;
   md?: number;
   lg?: number;
   xl?: number;
+  xxl?: number;
 }
 
 export default UtilityProps;

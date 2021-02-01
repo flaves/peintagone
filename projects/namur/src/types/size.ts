@@ -1,3 +1,3 @@
-type SizeType = `xs` | `sm` | `md` | `lg` | `xl`;
+type SizeType = `xxs` | `xs` | `sm` | `md` | `lg` | `xl` | `xxl`;
 
 export default SizeType;

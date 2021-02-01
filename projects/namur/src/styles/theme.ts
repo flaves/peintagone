@@ -79,7 +79,15 @@ export const color = {
   },
 };
 
-export const breakpoints = { xs: 375, sm: 768, md: 1240, lg: 1440, xl: 1980 };
+export const breakpoints = {
+  xxs: 375,
+  xs: 576,
+  sm: 768,
+  md: 980,
+  lg: 1240,
+  xl: 1440,
+  xxl: 1980,
+};
 
 export const grid = {
   columns: 12,
