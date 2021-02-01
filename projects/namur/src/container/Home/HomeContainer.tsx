@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomeTrends from '@/container/Home/HomeTrends';
 import HomeWhy from '@/container/Home/HomeWhy';
 import HomePartners from '@/container/Home/HomePartners';
 import HomeTeam from '@/container/Home/HomeTeam';
@@ -24,6 +25,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    trends_section_title,
+    trends_button_label,
+    trends_button_link,
+    trends,
     why_section_title,
     why_section_list,
     why_section_side_image,
@@ -68,7 +73,22 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     })),
   };
 
-  console.log(why_section_list);
+  const TrendsProps = {
+    title: <RichText render={trends_section_title?.raw} />,
+    button: {
+      label: trends_button_label,
+      link: trends_button_link?.url,
+      target: trends_button_link?.target,
+    },
+    trends: trends?.map((trend: any) => ({
+      name: trend?.trend_name,
+      color: trend?.trend_color,
+      image: {
+        url: trend?.trend_image?.url,
+        alt: trend?.trend_image?.alt,
+      },
+    })),
+  };
 
   const WhyProps = {
     title: <RichText render={why_section_title?.raw} />,
@@ -132,6 +152,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomeTrends {...TrendsProps} />
       <HomeWhy {...WhyProps} />
       <HomePartners {...PartnersProps} />
       <HomeTeam {...TeamProps} />

@@ -75,8 +75,8 @@ const renderButtonStyle = (
         style += `
           color: ${theme.color.white.main};
           &:hover {
-            color: ${theme.color.primary.main};
-            background-color: ${theme.color.white.main};
+            color: ${theme.color.white.main};
+            background-color: ${theme.color.primary.dark};
           }
         `;
       }

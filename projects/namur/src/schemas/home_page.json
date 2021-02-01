@@ -107,6 +107,60 @@
       }
     }
   },
+  "Trends": {
+    "trends_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "trends section title",
+        "placeholder": "Title"
+      }
+    },
+    "trends_button_label": {
+      "type": "Text",
+      "config": {
+        "label": "trends button label",
+        "placeholder": "Button label"
+      }
+    },
+    "trends_button_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "trends button link",
+        "placeholder": "Button link"
+      }
+    },
+    "trends": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "trend_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "trend image"
+            }
+          },
+          "trend_color": {
+            "type": "Color",
+            "config": {
+              "label": "trend color"
+            }
+          },
+          "trend_name": {
+            "type": "Text",
+            "config": {
+              "label": "trend name",
+              "placeholder": "Name"
+            }
+          }
+        },
+        "label": "trends"
+      }
+    }
+  },
   "Why": {
     "why_section_title": {
       "type": "StructuredText",
