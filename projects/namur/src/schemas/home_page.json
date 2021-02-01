@@ -107,6 +107,40 @@
       }
     }
   },
+  "Why": {
+    "why_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "why section title",
+        "placeholder": "Title"
+      }
+    },
+    "why_section_list": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "list_item": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
+              "label": "list item",
+              "placeholder": "List item text"
+            }
+          }
+        },
+        "label": "why section list"
+      }
+    },
+    "why_section_side_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "why section side image"
+      }
+    }
+  },
   "Partners": {
     "partners_section_title": {
       "type": "StructuredText",

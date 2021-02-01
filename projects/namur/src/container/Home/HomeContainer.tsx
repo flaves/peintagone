@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomeWhy from '@/container/Home/HomeWhy';
 import HomePartners from '@/container/Home/HomePartners';
 import HomeTeam from '@/container/Home/HomeTeam';
 import HomeMap from '@/container/Home/HomeMap';
@@ -23,6 +24,9 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    why_section_title,
+    why_section_list,
+    why_section_side_image,
     partners_section_title,
     partners,
     team_section_title,
@@ -51,7 +55,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   const ProductsProps = {
     title: <RichText render={product_section_title?.raw} />,
     text: <RichText render={product_section_text?.raw} />,
-    products: products?.map((product) => ({
+    products: products?.map((product: any) => ({
       image: {
         url: product?.image?.url,
         alt: product?.image?.alt,
@@ -62,6 +66,19 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
         target: product?.link?.target,
       },
     })),
+  };
+
+  console.log(why_section_list);
+
+  const WhyProps = {
+    title: <RichText render={why_section_title?.raw} />,
+    list: why_section_list?.map((item: any) => ({
+      item: <RichText render={item?.list_item?.raw} />,
+    })),
+    sideImage: {
+      url: why_section_side_image?.url,
+      alt: why_section_side_image?.alt,
+    },
   };
 
   const PartnersProps = {
@@ -115,6 +132,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomeWhy {...WhyProps} />
       <HomePartners {...PartnersProps} />
       <HomeTeam {...TeamProps} />
       <HomeMap {...MapProps} />
