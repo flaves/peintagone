@@ -28,12 +28,12 @@ const Root = styled.div`
   }
 `;
 const Menu = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: ${({ theme }) => theme.zIndex.menu};
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background-color: ${({ theme }) => theme.color.primary.main};
   color: ${({ theme }) => theme.color.white.main};
   transform: translateX(150vw);
