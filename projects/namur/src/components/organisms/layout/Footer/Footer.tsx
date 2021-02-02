@@ -35,7 +35,7 @@ const RootContainer = styled(Container)`
   }
 
   ${mq('lg')} {
-    max-width: 100%;
+    max-width: ${({ theme }) => theme.breakpoints.lg}px;
   }
 `;
 const LinksContainer = styled.div`

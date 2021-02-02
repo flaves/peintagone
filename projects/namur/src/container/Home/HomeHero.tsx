@@ -113,13 +113,13 @@ const PentagonStyled = styled(Pentagon)`
     display: block;
     position: absolute;
     top: -65%;
-    right: 50px;
+    right: -50px;
     height: 300px;
   }
 
   ${mq('lg')} {
     top: -40%;
-    right: 50px;
+    right: -50px;
     height: 600px;
   }
 `;

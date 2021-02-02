@@ -44,6 +44,8 @@ const Text = styled(Typography)`
 
   ${mq('lg')} {
     text-align: left;
+    margin-left: 0;
+    margin-right: 0;
     margin-top: ${({ theme }) => theme.spacing(1)};
   }
 `;

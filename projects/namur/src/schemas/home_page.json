@@ -107,6 +107,127 @@
       }
     }
   },
+  "Trends": {
+    "trends_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "trends section title",
+        "placeholder": "Title"
+      }
+    },
+    "trends_button_label": {
+      "type": "Text",
+      "config": {
+        "label": "trends button label",
+        "placeholder": "Button label"
+      }
+    },
+    "trends_button_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "trends button link",
+        "placeholder": "Button link"
+      }
+    },
+    "trends": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "trend_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "trend image"
+            }
+          },
+          "trend_color": {
+            "type": "Color",
+            "config": {
+              "label": "trend color"
+            }
+          },
+          "trend_name": {
+            "type": "Text",
+            "config": {
+              "label": "trend name",
+              "placeholder": "Name"
+            }
+          }
+        },
+        "label": "trends"
+      }
+    }
+  },
+  "Why": {
+    "why_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "why section title",
+        "placeholder": "Title"
+      }
+    },
+    "why_section_list": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "list_item": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
+              "label": "list item",
+              "placeholder": "List item text"
+            }
+          }
+        },
+        "label": "why section list"
+      }
+    },
+    "why_section_side_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "why section side image"
+      }
+    }
+  },
+  "Partners": {
+    "partners_section_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "partners section title",
+        "placeholder": "Title"
+      }
+    },
+    "partners": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "name",
+              "placeholder": "Name"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "link",
+              "placeholder": "Link"
+            }
+          }
+        },
+        "label": "partners"
+      }
+    }
+  },
   "Team": {
     "team_section_title": {
       "type": "StructuredText",
