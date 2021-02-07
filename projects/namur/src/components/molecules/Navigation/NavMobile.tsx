@@ -6,9 +6,9 @@ import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 
 import Link from '@/components/atoms/Link';
 import FabButton from '@/components/atoms/FabButton';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 import Logo from '@/components/atoms/Logo';
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 
 import mq from '@/styles/mq';
 

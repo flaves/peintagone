@@ -22,7 +22,7 @@
       }
     }
   },
-  "Content": {
+  "Header": {
     "title": {
       "type": "StructuredText",
       "config": {
@@ -38,6 +38,152 @@
         "allowTargetBlank": true,
         "label": "text",
         "placeholder": "Text"
+      }
+    }
+  },
+  "Form": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "text_field": [],
+          "textarea_field": [],
+          "radio_field": []
+        },
+        "choices": {
+          "text_field": {
+            "type": "Slice",
+            "fieldset": "Text field",
+            "description": "Text inputs (text / email / phone, ...)",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "field_name": {
+                "type": "Text",
+                "config": {
+                  "label": "field name",
+                  "placeholder": "Name"
+                }
+              },
+              "field_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "field placeholder",
+                  "placeholder": "Placeholder"
+                }
+              },
+              "field_label": {
+                "type": "Text",
+                "config": {
+                  "label": "field label",
+                  "placeholder": "Label"
+                }
+              },
+              "field_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["text", "email", "phone"],
+                  "default_value": "text",
+                  "label": "field type",
+                  "placeholder": "Type"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "required"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "textarea_field": {
+            "type": "Slice",
+            "fieldset": "Textarea field",
+            "description": "Textarea",
+            "icon": "aspect_ratio",
+            "display": "list",
+            "non-repeat": {
+              "field_name": {
+                "type": "Text",
+                "config": {
+                  "label": "field name",
+                  "placeholder": "Name"
+                }
+              },
+              "field_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "field placeholder",
+                  "placeholder": "Placeholder"
+                }
+              },
+              "field_label": {
+                "type": "Text",
+                "config": {
+                  "label": "field label",
+                  "placeholder": "Label"
+                }
+              },
+              "rows": {
+                "type": "Number",
+                "config": {
+                  "label": "rows",
+                  "placeholder": "Number of rows"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "required"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "radio_field": {
+            "type": "Slice",
+            "fieldset": "Radio field",
+            "description": "Radio buttons",
+            "icon": "radio_button_checked",
+            "display": "grid",
+            "non-repeat": {
+              "field_name": {
+                "type": "Text",
+                "config": {
+                  "label": "field name",
+                  "placeholder": "Name"
+                }
+              },
+              "field_label": {
+                "type": "Text",
+                "config": {
+                  "label": "field label",
+                  "placeholder": "Label"
+                }
+              }
+            },
+            "repeat": {
+              "radio_value": {
+                "type": "Text",
+                "config": {
+                  "label": "radio value",
+                  "placeholder": "Value"
+                }
+              },
+              "radio_label": {
+                "type": "Text",
+                "config": {
+                  "label": "radio_label",
+                  "placeholder": "Radio label"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

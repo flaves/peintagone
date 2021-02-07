@@ -112,6 +112,7 @@ const renderButtonStyle = (
 };
 
 const Root = styled.button<Props>`
+  cursor: pointer;
   display: inline-block;
   ${({ variant = 'contained', color = 'primary', theme }) =>
     renderButtonStyle(variant, color, theme)}

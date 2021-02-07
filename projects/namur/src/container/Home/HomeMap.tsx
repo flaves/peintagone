@@ -10,9 +10,9 @@ import {
 } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 import Typography from '@/components/atoms/Typography';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Root = styled.p`
-  color: ${({ theme }) => theme.color.error};
+  color: ${({ theme }) => theme.color.error.main};
   font-size: 1.4rem;
 `;
 

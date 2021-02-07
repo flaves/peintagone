@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { NavDesktop, NavMobile } from '@/components/molecules/Navigation';
 import Logo from '@/components/atoms/Logo';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 
 import mq from '@/styles/mq';
 
@@ -12,7 +12,12 @@ import LinkProps from '@/types/link';
 
 interface Props {
   links?: LinkProps[];
+  hideNav?: boolean;
 }
+
+const Root = styled(Container)<Props>`
+  display: ${({ hideNav }) => (hideNav ? 'none' : 'block')};
+`;
 
 const NavContainer = styled.div`
   display: flex;
@@ -35,9 +40,9 @@ const LogoContainer = styled.div`
   }
 `;
 
-const Header = ({ links }: Props): JSX.Element => {
+const Header = ({ links, hideNav }: Props): JSX.Element => {
   return (
-    <Container>
+    <Root hideNav={hideNav}>
       <NavContainer>
         <LogoContainer>
           <Logo />
@@ -49,7 +54,7 @@ const Header = ({ links }: Props): JSX.Element => {
           </>
         )}
       </NavContainer>
-    </Container>
+    </Root>
   );
 };
 

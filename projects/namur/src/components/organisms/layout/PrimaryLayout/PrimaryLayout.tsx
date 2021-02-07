@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs';
 
 import Header from '@/components/organisms/layout/Header';
 import Footer from '@/components/organisms/layout/Footer';
+import Notifications from '@/components/molecules/Notifications';
 
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
@@ -11,6 +12,7 @@ import { LayoutQuery } from '../../../../../graphql-types';
 
 interface LayoutProps {
   children: React.ReactNode;
+  hideNav?: boolean;
 }
 
 export const query = graphql`
@@ -36,7 +38,10 @@ export const query = graphql`
   }
 `;
 
-const PrimaryLayout = ({ children }: LayoutProps): JSX.Element | null => {
+const PrimaryLayout = ({
+  children,
+  hideNav = false,
+}: LayoutProps): JSX.Element | null => {
   const data: LayoutQuery = useStaticQuery(query);
   const { setCompanyInfos } = useCompanyInfosContext();
 
@@ -83,9 +88,10 @@ const PrimaryLayout = ({ children }: LayoutProps): JSX.Element | null => {
 
   return (
     <>
-      <Header {...HeaderProps} />
+      <Header hideNav={hideNav} {...HeaderProps} />
       <main role="main">{children}</main>
       <Footer {...FooterProps} />
+      <Notifications />
     </>
   );
 };

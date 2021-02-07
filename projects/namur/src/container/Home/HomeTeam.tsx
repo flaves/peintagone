@@ -2,11 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 import mq from '@/styles/mq';
 import Typography from '@/components/atoms/Typography';
 import Img from '@/components/atoms/Img';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 
 import { ImageType } from '@/types/image';
 

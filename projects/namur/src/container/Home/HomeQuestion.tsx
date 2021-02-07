@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 
 import Button from '@/components/atoms/Button';
 import Link from '@/components/atoms/Link';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 import Background from '@/components/atoms/Background';
 
 import { ButtonProps } from '@/types/button';
