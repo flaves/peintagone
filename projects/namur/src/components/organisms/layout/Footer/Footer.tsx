@@ -3,10 +3,10 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
 import Link from '@/components/atoms/Link';
-import Grid from '@/components/atoms/Grid';
-import Container from '@/components/atoms/Container';
+import Grid from '@/components/atoms/Layout/Grid';
+import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
-import Separator from '@/components/atoms/Separator';
+import Separator from '@/components/atoms/Layout/Separator';
 import Socials from '@/components/molecules/Socials';
 import NewsletterForm from '@/components/molecules/NewsletterForm';
 

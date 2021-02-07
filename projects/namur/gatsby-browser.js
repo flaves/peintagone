@@ -1,10 +1,9 @@
 /* eslint-disable */
-
 import wrapWithProvider from './wrapWithProvider';
-import CompanyInfosProvider from './src/contexts/companyInfosContext';
+import Root from './src/components/organisms/Root';
 
 export const wrapPageElement = ({ element, props }) => {
-  return <CompanyInfosProvider {...props}>{element}</CompanyInfosProvider>;
+  return <Root {...props}>{element}</Root>;
 };
 
 export const wrapRootElement = wrapWithProvider;

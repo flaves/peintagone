@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/pro-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 
-import Input from '@/components/atoms/Input';
-import FormError from '@/components/atoms/FormError/Error';
-import Grid from '@/components/atoms/Grid';
+import Input from '@/components/atoms/Form/Input';
+import FormError from '@/components/atoms/Form/FormError/Error';
+import Grid from '@/components/atoms/Layout/Grid';
 
 interface FormData {
   email: string;

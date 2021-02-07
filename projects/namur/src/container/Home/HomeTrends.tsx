@@ -6,9 +6,9 @@ import AliceCarousel from 'react-alice-carousel';
 
 import Button from '@/components/atoms/Button';
 import Link from '@/components/atoms/Link';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 import Img from '@/components/atoms/Img';
 import Arrow from '@/components/atoms/Arrow';
 

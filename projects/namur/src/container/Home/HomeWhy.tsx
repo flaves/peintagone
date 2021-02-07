@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 import Img from '@/components/atoms/Img';
 import Typography from '@/components/atoms/Typography';
 

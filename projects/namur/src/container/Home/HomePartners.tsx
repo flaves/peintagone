@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import AliceCarousel from 'react-alice-carousel';
 
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
-import Grid from '@/components/atoms/Grid';
+import Grid from '@/components/atoms/Layout/Grid';
 import Link from '@/components/atoms/Link';
 
 import mq from '@/styles/mq';

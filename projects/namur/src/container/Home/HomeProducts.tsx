@@ -8,7 +8,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import Img from '@/components/atoms/Img';
 import Link from '@/components/atoms/Link';
 import Typography from '@/components/atoms/Typography';
-import Container from '@/components/atoms/Container';
+import Container from '@/components/atoms/Layout/Container';
 import Arrow from '@/components/atoms/Arrow';
 
 import mq from '@/styles/mq';

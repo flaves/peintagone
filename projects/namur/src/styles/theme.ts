@@ -40,7 +40,7 @@ export const color = {
   secondary: {
     light: `#f8f8f8`,
     main: `#f8f8f8`,
-    dark: `#f8f8f8`,
+    dark: `#efefef`,
   },
   textPrimary: {
     light: `#575d5e`,

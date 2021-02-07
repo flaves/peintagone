@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
+import HomePainting from '@/container/Home/HomePainting';
 import HomeTrends from '@/container/Home/HomeTrends';
 import HomeWhy from '@/container/Home/HomeWhy';
 import HomePartners from '@/container/Home/HomePartners';
@@ -25,6 +26,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_title,
     product_section_text,
     products,
+    painting_section_title,
     trends_section_title,
     trends_button_label,
     trends_button_link,
@@ -71,6 +73,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
         target: product?.link?.target,
       },
     })),
+  };
+
+  const PaintingProps = {
+    title: <RichText render={painting_section_title?.raw} />,
   };
 
   const TrendsProps = {
@@ -152,6 +158,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     <>
       <HomeHero {...HeroProps} />
       <HomeProducts {...ProductsProps} />
+      <HomePainting {...PaintingProps} />
       <HomeTrends {...TrendsProps} />
       <HomeWhy {...WhyProps} />
       <HomePartners {...PartnersProps} />
