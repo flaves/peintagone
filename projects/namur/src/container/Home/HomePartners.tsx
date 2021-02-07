@@ -31,11 +31,6 @@ const Title = styled(Typography)`
     padding: ${({ theme }) => theme.spacing(14)} 0;
   }
 `;
-const MobileCarouselContainer = styled.div`
-  ${mq('md')} {
-    display: none;
-  }
-`;
 const Partner = styled(Link)`
   display: block;
   text-align: center;
@@ -75,16 +70,14 @@ const HomePartners = ({ title, partners }: Props): JSX.Element => {
     <Root>
       <Grid container justifyContent="center" alignItems="center">
         <Title variant="h2">{title}</Title>
-        <MobileCarouselContainer>
-          <AliceCarousel
-            mouseTracking
-            disableDotsControls
-            infinite
-            responsive={{ 0: { items: 3 } }}
-            disableButtonsControls
-            items={Partners}
-          />
-        </MobileCarouselContainer>
+        <AliceCarousel
+          mouseTracking
+          disableDotsControls
+          infinite
+          responsive={{ 0: { items: 3 } }}
+          disableButtonsControls
+          items={Partners}
+        />
       </Grid>
     </Root>
   );
