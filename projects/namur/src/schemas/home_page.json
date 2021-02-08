@@ -115,6 +115,22 @@
         "label": "painting section title",
         "placeholder": "Title"
       }
+    },
+    "paintings": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "painting_category": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "painting category",
+              "placeholder": "Category"
+            }
+          }
+        },
+        "label": "paintings"
+      }
     }
   },
   "Trends": {

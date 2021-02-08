@@ -43,6 +43,7 @@ module.exports = {
           footer: require('./src/schemas/layout/footer.json'),
           home_page: require('./src/schemas/home_page.json'),
           contact_page: require('./src/schemas/contact_page.json'),
+          painting_category: require('./src/schemas/painting_category.json'),
         },
         linkResolver: require('./src/utils/linkResolver.ts'),
       },

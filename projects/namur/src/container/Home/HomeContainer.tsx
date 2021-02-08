@@ -27,6 +27,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     product_section_text,
     products,
     painting_section_title,
+    paintings,
     trends_section_title,
     trends_button_label,
     trends_button_link,
@@ -77,6 +78,28 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
 
   const PaintingProps = {
     title: <RichText render={painting_section_title?.raw} />,
+    categories: paintings?.map((painting: any) => {
+      const { id, data: paintingData, uid } =
+        painting?.painting_category?.document || {};
+      const {
+        category_background_color,
+        category_name,
+        category_image,
+        category_link,
+      } = paintingData || {};
+
+      return {
+        id,
+        uid,
+        name: category_name,
+        backgroundColor: category_background_color,
+        image: {
+          url: category_image?.url,
+          alt: category_image?.alt,
+        },
+        link: category_link?.url,
+      };
+    }),
   };
 
   const TrendsProps = {

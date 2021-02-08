@@ -75,6 +75,12 @@ const reset = css`
       color: ${primary.main};
     }
   }
+
+  button {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
 `;
 
 export default reset;
