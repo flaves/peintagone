@@ -134,6 +134,7 @@ const MemberImage = styled(Img)`
     height: 200px;
     object-fit: cover;
   }
+
   ${mq('lg')} {
     height: 350px;
     object-fit: cover;
@@ -158,6 +159,7 @@ const Description = styled(Typography)`
 const Fade = styled.div`
   position: relative;
   width: 300px;
+  height: 350px;
 
   ${mq(`md`)} {
     height: 200px;
