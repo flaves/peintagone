@@ -3,13 +3,13 @@ require('dotenv').config({
 });
 
 const config = {
-  siteUrl: `https://flav.es`,
+  siteUrl: `https://wwww.peintagonecenter-namur.be`,
 };
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Flaves`,
-    description: `Gatsby starter for personal project.`,
+    title: `Peintagone Center Namur`,
+    description: `Magasin de peinture`,
     author: `@flaves`,
     siteUrl: config.siteUrl,
   },
@@ -77,13 +77,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-opeah`,
-        short_name: `opeah`,
+        name: `peintagonecenter-namur`,
+        short_name: `flaves`,
         start_url: `/`,
         background_color: `#0F111A`,
         theme_color: `#0F111A`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby.png`,
+        icon: `src/images/logo.png`,
       },
     },
     {

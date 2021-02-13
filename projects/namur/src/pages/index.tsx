@@ -15,6 +15,8 @@ export const query = graphql`
   query HomePage {
     prismicHomePage {
       data {
+        meta_title
+        meta_description
         ...HomeHero
         ...HomeProducts
         ...HomePainting
@@ -31,7 +33,10 @@ export const query = graphql`
 
 const Home = ({ data }: Props): JSX.Element => (
   <PrimaryLayout>
-    <SEO title="Home" />
+    <SEO
+      title={data?.prismicHomePage?.data?.meta_title as string}
+      description={data?.prismicHomePage?.data?.meta_description as string}
+    />
     <HomeContainer data={data} />
   </PrimaryLayout>
 );

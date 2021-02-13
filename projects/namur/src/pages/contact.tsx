@@ -15,6 +15,8 @@ export const query = graphql`
   query ContactPage {
     prismicContactPage {
       data {
+        meta_title
+        meta_description
         ...ContactHeader
         body {
           ...SliceInputText
@@ -28,7 +30,10 @@ export const query = graphql`
 
 const Contact = ({ data }: Props): JSX.Element => (
   <PrimaryLayout hideNav>
-    <SEO title="Contact" />
+    <SEO
+      title={data?.prismicContactPage?.data?.meta_title as string}
+      description={data?.prismicContactPage?.data?.meta_description as string}
+    />
     <ContactContainer data={data} />
   </PrimaryLayout>
 );
