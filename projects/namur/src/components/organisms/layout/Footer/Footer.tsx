@@ -24,7 +24,7 @@ interface Props {
 }
 
 const Root = styled.div`
-  margin-top: ${({ theme }) => theme.spacing(5)};
+  margin-top: ${({ theme }) => theme.spacing(10)};
   padding-bottom: ${({ theme }) => theme.spacing(5)};
 `;
 const RootContainer = styled(Container)`
@@ -52,7 +52,7 @@ const Column = styled(Grid)`
   flex-direction: column;
 `;
 const ColumnsContainer = styled(Grid)`
-  padding-top: ${({ theme }) => theme.spacing(2)};
+  padding-top: ${({ theme }) => theme.spacing(5)};
 
   ${Column}:not(:first-of-type) {
     margin-top: ${({ theme }) => theme.spacing(4)};
