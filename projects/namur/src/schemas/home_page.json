@@ -291,12 +291,20 @@
       "type": "Group",
       "config": {
         "fields": {
-          "image": {
+          "image_1": {
             "type": "Image",
             "config": {
               "constraint": {},
               "thumbnails": [],
-              "label": "image"
+              "label": "image 1"
+            }
+          },
+          "image_2": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image 2"
             }
           },
           "role": {

@@ -149,9 +149,13 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
       alt: team_section_side_image?.alt,
     },
     members: team_members?.map((member: any) => ({
-      image: {
-        url: member?.image?.url,
-        alt: member?.image?.alt,
+      image_1: {
+        url: member?.image_1?.url,
+        alt: member?.image_1?.alt,
+      },
+      image_2: {
+        url: member?.image_2?.url,
+        alt: member?.image_2?.alt,
       },
       role: <RichText render={member?.role?.raw} />,
       name: <RichText render={member?.name?.raw} />,
