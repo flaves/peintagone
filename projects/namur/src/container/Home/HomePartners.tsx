@@ -77,6 +77,8 @@ const HomePartners = ({ title, partners }: Props): JSX.Element => {
           responsive={{ 0: { items: 3 } }}
           disableButtonsControls
           items={Partners}
+          autoPlay
+          autoPlayInterval={1000}
         />
       </Grid>
     </Root>

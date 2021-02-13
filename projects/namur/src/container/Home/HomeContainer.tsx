@@ -1,5 +1,6 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
+import { Section } from 'react-scroll-section';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
@@ -29,6 +30,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     painting_section_title,
     paintings,
     trends_section_title,
+    trends_section_text,
     trends_button_label,
     trends_button_link,
     trends,
@@ -104,6 +106,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
 
   const TrendsProps = {
     title: <RichText render={trends_section_title?.raw} />,
+    text: <RichText render={trends_section_text?.raw} />,
     button: {
       label: trends_button_label,
       link: trends_button_link?.url,
@@ -147,9 +150,13 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
       alt: team_section_side_image?.alt,
     },
     members: team_members?.map((member: any) => ({
-      image: {
-        url: member?.image?.url,
-        alt: member?.image?.alt,
+      image_1: {
+        url: member?.image_1?.url,
+        alt: member?.image_1?.alt,
+      },
+      image_2: {
+        url: member?.image_2?.url,
+        alt: member?.image_2?.alt,
       },
       role: <RichText render={member?.role?.raw} />,
       name: <RichText render={member?.name?.raw} />,
@@ -180,14 +187,30 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   return (
     <>
       <HomeHero {...HeroProps} />
-      <HomeProducts {...ProductsProps} />
-      <HomePainting {...PaintingProps} />
-      <HomeTrends {...TrendsProps} />
-      <HomeWhy {...WhyProps} />
-      <HomePartners {...PartnersProps} />
-      <HomeTeam {...TeamProps} />
-      <HomeMap {...MapProps} />
-      <HomeQuestion {...QuestionProps} />
+      <Section id="products">
+        <HomeProducts {...ProductsProps} />
+      </Section>
+      <Section id="painting">
+        <HomePainting {...PaintingProps} />
+      </Section>
+      <Section id="trends">
+        <HomeTrends {...TrendsProps} />
+      </Section>
+      <Section id="why">
+        <HomeWhy {...WhyProps} />
+      </Section>
+      <Section id="partners">
+        <HomePartners {...PartnersProps} />
+      </Section>
+      <Section id="team">
+        <HomeTeam {...TeamProps} />
+      </Section>
+      <Section id="map">
+        <HomeMap {...MapProps} />
+      </Section>
+      <Section id="question">
+        <HomeQuestion {...QuestionProps} />
+      </Section>
     </>
   );
 };

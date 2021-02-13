@@ -25,6 +25,7 @@ interface TrendProps {
 
 interface Props {
   title?: React.ReactNode;
+  text?: React.ReactNode;
   button?: ButtonProps;
   trends?: TrendProps[];
 }
@@ -117,7 +118,7 @@ const MobileButton = styled.div`
 const Trend = ({ name, image, color }: TrendProps): JSX.Element => {
   return (
     <TrendContainer>
-      <TrendImage src={image?.url} alt={image?.alt} sizes="350px" />
+      <TrendImage src={image?.url} alt={image?.alt} sizes="400px" />
       <TrendButton
         variant="contained"
         css={css`
@@ -131,7 +132,7 @@ const Trend = ({ name, image, color }: TrendProps): JSX.Element => {
   );
 };
 
-const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
+const HomeTrends = ({ title, text, button, trends }: Props): JSX.Element => {
   const handleDragStart = (e: React.MouseEvent) => e.preventDefault();
 
   const Trends = trends?.map((trend, index) => (
@@ -142,8 +143,9 @@ const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
     <>
       <Root>
         <Grid container>
-          <ContentGrid lg={5} xxs={12}>
+          <ContentGrid lg={4} xxs={12}>
             <Title variant="h2">{title}</Title>
+            <Typography variant="textMd">{text}</Typography>
             <DesktopButton>
               <ButtonStyled
                 as={Link}
@@ -155,7 +157,7 @@ const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
               </ButtonStyled>
             </DesktopButton>
           </ContentGrid>
-          <CarouselGrid lg={7} xxs={12}>
+          <CarouselGrid lg={8} xxs={12}>
             <AliceCarousel
               mouseTracking
               disableDotsControls
@@ -194,6 +196,9 @@ const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
 export const query = graphql`
   fragment HomeTrends on PrismicHomePageDataType {
     trends_section_title {
+      raw
+    }
+    trends_section_text {
       raw
     }
     trends_button_label

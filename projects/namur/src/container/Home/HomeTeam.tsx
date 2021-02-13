@@ -11,7 +11,8 @@ import Container from '@/components/atoms/Layout/Container';
 import { ImageType } from '@/types/image';
 
 interface MemberProps {
-  image?: ImageType;
+  image_1?: ImageType;
+  image_2?: ImageType;
   role?: React.ReactNode;
   name?: React.ReactNode;
   description?: React.ReactNode;
@@ -154,21 +155,71 @@ const Description = styled(Typography)`
   max-width: 300px;
 `;
 
+const Fade = styled.div`
+  position: relative;
+  width: 300px;
+
+  ${mq(`md`)} {
+    height: 200px;
+  }
+
+  ${mq(`lg`)} {
+    height: 350px;
+  }
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+
+    &:first-of-type {
+      opacity: 1;
+    }
+
+    &:last-of-type {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    & > img {
+      &:first-of-type {
+        opacity: 0;
+      }
+
+      &:last-of-type {
+        opacity: 1;
+      }
+    }
+  }
+`;
+
 const Member = ({
-  image,
+  image_1,
+  image_2,
   role,
   name,
   description,
 }: MemberProps): JSX.Element => {
   return (
     <MemberContainer>
-      <MemberImage
-        src={image?.url}
-        alt={image?.alt}
-        height={350}
-        width={300}
-        sizes="300px"
-      />
+      <Fade>
+        <MemberImage
+          src={image_1?.url}
+          alt={image_1?.alt}
+          height={350}
+          width={300}
+          sizes="300px"
+        />
+        <MemberImage
+          src={image_2?.url}
+          alt={image_2?.alt}
+          height={350}
+          width={300}
+          sizes="300px"
+        />
+      </Fade>
       <Role color="primary" variant="textSm">
         {role}
       </Role>
@@ -213,7 +264,11 @@ export const query = graphql`
       alt
     }
     team_members {
-      image {
+      image_1 {
+        url
+        alt
+      }
+      image_2 {
         url
         alt
       }

@@ -8,10 +8,10 @@ import Container from '@/components/atoms/Layout/Container';
 
 import mq from '@/styles/mq';
 
-import LinkProps from '@/types/link';
+import LinkType from '@/types/link';
 
 interface Props {
-  links?: LinkProps[];
+  links?: LinkType[];
   hideNav?: boolean;
 }
 
