@@ -157,9 +157,15 @@ const Description = styled(Typography)`
 
 const Fade = styled.div`
   position: relative;
-  height: 350px;
   width: 300px;
-  // background-color: ${({ theme }) => theme.color.primary.main};
+
+  ${mq(`md`)} {
+    height: 200px;
+  }
+
+  ${mq(`lg`)} {
+    height: 350px;
+  }
 
   & > img {
     position: absolute;
