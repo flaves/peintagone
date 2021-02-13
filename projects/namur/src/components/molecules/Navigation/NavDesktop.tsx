@@ -15,7 +15,7 @@ interface Props {
 const LinkStyled = styled(Link)`
   font-size: 1.6rem;
   font-weight: 800;
-  margin-right: ${({ theme }) => theme.spacing(2.5)};
+  margin-right: ${({ theme }) => theme.spacing(5)};
 `;
 
 const NavGrid = styled(Grid)`
