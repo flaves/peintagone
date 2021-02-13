@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { useScrollSection } from 'react-scroll-section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 
@@ -15,6 +16,7 @@ import mq from '@/styles/mq';
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
 import LinkProps from '@/types/link';
+import SectionsType from '@/types/sections';
 
 interface Props {
   links: LinkProps[];
@@ -97,14 +99,35 @@ const show = css`
 `;
 
 const NavMobile = ({ links }: Props): JSX.Element => {
+  const products = useScrollSection(`products`);
+  const trends = useScrollSection(`trends`);
+  const partners = useScrollSection(`partners`);
+  const team = useScrollSection(`team`);
+  const map = useScrollSection(`map`);
+
+  const sections: SectionsType = {
+    products,
+    trends,
+    partners,
+    team,
+    map,
+  };
+
   const [open, setOpen] = useState<boolean>(false);
   const { companyInfos } = useCompanyInfosContext();
 
   const Links = links.map((link, index) => (
     <LinkStyled
       key={index.toString()}
-      to={link.url || ''}
-      target={link.target || ''}
+      to={link?.url || `/`}
+      onClick={(e) => {
+        if (link?.target) {
+          e.preventDefault();
+
+          setOpen(false);
+          sections?.[link?.target]?.onClick();
+        }
+      }}
     >
       {link.label}
     </LinkStyled>
