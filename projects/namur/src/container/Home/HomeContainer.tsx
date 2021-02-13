@@ -29,6 +29,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     painting_section_title,
     paintings,
     trends_section_title,
+    trends_section_text,
     trends_button_label,
     trends_button_link,
     trends,
@@ -104,6 +105,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
 
   const TrendsProps = {
     title: <RichText render={trends_section_title?.raw} />,
+    text: <RichText render={trends_section_text?.raw} />,
     button: {
       label: trends_button_label,
       link: trends_button_link?.url,

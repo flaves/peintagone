@@ -142,6 +142,13 @@
         "placeholder": "Title"
       }
     },
+    "trends_section_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em",
+        "label": "trends_section_text"
+      }
+    },
     "trends_button_label": {
       "type": "Text",
       "config": {
