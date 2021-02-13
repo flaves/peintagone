@@ -190,9 +190,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
       <Section id="products">
         <HomeProducts {...ProductsProps} />
       </Section>
-      <Section id="painting">
-        <HomePainting {...PaintingProps} />
-      </Section>
+      <HomePainting {...PaintingProps} />
       <Section id="trends">
         <HomeTrends {...TrendsProps} />
       </Section>
@@ -208,9 +206,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
       <Section id="map">
         <HomeMap {...MapProps} />
       </Section>
-      <Section id="question">
-        <HomeQuestion {...QuestionProps} />
-      </Section>
+      <HomeQuestion {...QuestionProps} />
     </>
   );
 };
