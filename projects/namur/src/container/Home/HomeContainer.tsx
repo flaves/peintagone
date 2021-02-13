@@ -1,5 +1,6 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
+import { Section } from 'react-scroll-section';
 
 import HomeHero from '@/container/Home/HomeHero';
 import HomeProducts from '@/container/Home/HomeProducts';
@@ -186,14 +187,30 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   return (
     <>
       <HomeHero {...HeroProps} />
-      <HomeProducts {...ProductsProps} />
-      <HomePainting {...PaintingProps} />
-      <HomeTrends {...TrendsProps} />
-      <HomeWhy {...WhyProps} />
-      <HomePartners {...PartnersProps} />
-      <HomeTeam {...TeamProps} />
-      <HomeMap {...MapProps} />
-      <HomeQuestion {...QuestionProps} />
+      <Section id="products">
+        <HomeProducts {...ProductsProps} />
+      </Section>
+      <Section id="painting">
+        <HomePainting {...PaintingProps} />
+      </Section>
+      <Section id="trends">
+        <HomeTrends {...TrendsProps} />
+      </Section>
+      <Section id="why">
+        <HomeWhy {...WhyProps} />
+      </Section>
+      <Section id="partners">
+        <HomePartners {...PartnersProps} />
+      </Section>
+      <Section id="team">
+        <HomeTeam {...TeamProps} />
+      </Section>
+      <Section id="map">
+        <HomeMap {...MapProps} />
+      </Section>
+      <Section id="question">
+        <HomeQuestion {...QuestionProps} />
+      </Section>
     </>
   );
 };

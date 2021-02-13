@@ -16,6 +16,8 @@ import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
 import LinkType from '@/types/link';
 import { SocialProps } from '@/components/molecules/Socials/Socials';
+import { useScrollSection } from 'react-scroll-section';
+import SectionsType from '@/types/sections';
 
 interface Props {
   links?: LinkType[];
@@ -147,6 +149,19 @@ const Copyright = styled.div`
 const Footer = ({ links, socials, legals }: Props): JSX.Element => {
   const { companyInfos } = useCompanyInfosContext();
   const { address, email, phone, schedule } = companyInfos;
+  const products = useScrollSection(`products`);
+  const trends = useScrollSection(`trends`);
+  const partners = useScrollSection(`partners`);
+  const team = useScrollSection(`team`);
+  const map = useScrollSection(`map`);
+
+  const sections: SectionsType = {
+    products,
+    trends,
+    partners,
+    team,
+    map,
+  };
 
   const onSubmit = (data: FormData) => {
     console.log(data);
@@ -155,8 +170,14 @@ const Footer = ({ links, socials, legals }: Props): JSX.Element => {
   const Links = links?.map((link, index) => (
     <LinkStyled
       key={index.toString()}
-      to={link?.url || ''}
-      target={link?.target || ''}
+      to={link?.url || `/`}
+      onClick={(e) => {
+        if (link?.target) {
+          e.preventDefault();
+
+          sections?.[link?.target]?.onClick();
+        }
+      }}
     >
       {link?.label}
     </LinkStyled>

@@ -8,6 +8,8 @@ import Notifications from '@/components/molecules/Notifications';
 
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
+import LinkType from '@/types/link';
+
 import { LayoutQuery } from '../../../../../graphql-types';
 
 interface LayoutProps {
@@ -38,14 +40,39 @@ export const query = graphql`
   }
 `;
 
+const navLinks: LinkType[] = [
+  {
+    label: `Produits`,
+    target: `products`,
+  },
+  {
+    label: `Tendances`,
+    target: `trends`,
+  },
+  {
+    label: `Partenaires`,
+    target: `partners`,
+  },
+  {
+    label: `Équipe`,
+    target: `team`,
+  },
+  {
+    label: `Nous trouver`,
+    target: `map`,
+  },
+  {
+    label: `Contactez-nous`,
+    url: `/contact`,
+  },
+];
+
 const PrimaryLayout = ({
   children,
   hideNav = false,
 }: LayoutProps): JSX.Element | null => {
   const data: LayoutQuery = useStaticQuery(query);
   const { setCompanyInfos } = useCompanyInfosContext();
-
-  const { links } = data?.prismicNavigation?.data || {};
 
   const { address, email, phone_number, schedule } =
     data?.prismicCompanyInfos?.data || {};
@@ -62,12 +89,6 @@ const PrimaryLayout = ({
   useEffect(() => {
     setCompanyInfos(companyData);
   }, []);
-
-  const navLinks = links?.map((link: any) => ({
-    label: link.label,
-    url: link.link.url,
-    target: link.link.target,
-  }));
 
   const HeaderProps = {
     links: navLinks,
