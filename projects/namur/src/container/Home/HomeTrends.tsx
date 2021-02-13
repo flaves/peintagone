@@ -117,7 +117,7 @@ const MobileButton = styled.div`
 const Trend = ({ name, image, color }: TrendProps): JSX.Element => {
   return (
     <TrendContainer>
-      <TrendImage src={image?.url} alt={image?.alt} sizes="350px" />
+      <TrendImage src={image?.url} alt={image?.alt} sizes="400px" />
       <TrendButton
         variant="contained"
         css={css`
@@ -142,7 +142,7 @@ const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
     <>
       <Root>
         <Grid container>
-          <ContentGrid lg={5} xxs={12}>
+          <ContentGrid lg={4} xxs={12}>
             <Title variant="h2">{title}</Title>
             <DesktopButton>
               <ButtonStyled
@@ -155,7 +155,7 @@ const HomeTrends = ({ title, button, trends }: Props): JSX.Element => {
               </ButtonStyled>
             </DesktopButton>
           </ContentGrid>
-          <CarouselGrid lg={7} xxs={12}>
+          <CarouselGrid lg={8} xxs={12}>
             <AliceCarousel
               mouseTracking
               disableDotsControls
