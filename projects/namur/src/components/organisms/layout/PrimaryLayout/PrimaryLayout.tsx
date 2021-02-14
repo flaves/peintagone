@@ -61,10 +61,10 @@ const navLinks: LinkType[] = [
     label: `Nous trouver`,
     target: `map`,
   },
-  {
-    label: `Contactez-nous`,
-    url: `/contact`,
-  },
+  // {
+  //   label: `Contactez-nous`,
+  //   url: `/contact`,
+  // },
 ];
 
 const PrimaryLayout = ({
