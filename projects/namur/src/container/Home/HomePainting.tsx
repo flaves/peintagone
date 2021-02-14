@@ -224,7 +224,6 @@ const Category = ({
 
 const HomePainting = ({ title, categories }: Props): JSX.Element => {
   const [activeCategory, setActiveCategory] = useState<CategoryProps>();
-  console.log(categories);
 
   // Set default
   useEffect(() => categories && setActiveCategory(categories[0]), []);

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useContext, useReducer } from 'react';
+import React, { useMemo, useContext, useReducer } from 'react';
 
 interface NotifProps {
   id: string;
@@ -77,8 +77,6 @@ const NotifContextProvider = ({ children }: ProviderProps): JSX.Element => {
   };
 
   const clearNotifs = () => dispatch({ type: ActionType.CLEAR });
-
-  useEffect(() => console.log(notifs), [notifs]);
 
   const value = useMemo(
     () => ({ notifs, pushNotif, popNotif, removeNotif, clearNotifs }),
