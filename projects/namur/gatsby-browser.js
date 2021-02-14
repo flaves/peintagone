@@ -1,3 +1,5 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 /* eslint-disable */
 import wrapWithProvider from './wrapWithProvider';
 import Root from './src/components/organisms/Root';
