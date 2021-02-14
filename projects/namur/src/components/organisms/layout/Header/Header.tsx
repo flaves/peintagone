@@ -33,6 +33,8 @@ const NavContainer = styled.div`
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 200px;
+  height: auto;
 
   ${mq('lg')} {
     justify-content: flex-start;

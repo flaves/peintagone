@@ -109,8 +109,8 @@ const Map = styled.div`
 
 const HomeMap = ({ title }: Props): JSX.Element => {
   const [mapState] = useState({
-    lng: 4.886223020496686,
-    lat: 50.45529785683485,
+    lng: 4.88858,
+    lat: 50.45238,
     zoom: 15,
   });
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -127,10 +127,12 @@ const HomeMap = ({ title }: Props): JSX.Element => {
     // @ts-ignore
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/light-v8',
       center: [mapState.lng, mapState.lat],
       zoom: mapState.zoom,
     });
+
+    new mapboxgl.Marker().setLngLat([4.88858, 50.45238]).addTo(map);
   }, []);
 
   return (
@@ -143,25 +145,25 @@ const HomeMap = ({ title }: Props): JSX.Element => {
           <InfosContainer>
             <InfoItem>
               <Icon icon={faMapMarkerCheck} />
-              <ItemText variant="h3" color="white">
+              <ItemText variant="h4" color="white">
                 {address}
               </ItemText>
             </InfoItem>
             <InfoItem>
               <Icon icon={faClock} />
-              <ItemText variant="h3" color="white">
+              <ItemText variant="h4" color="white">
                 {schedule}
               </ItemText>
             </InfoItem>
             <InfoItem>
               <Icon icon={faEnvelopeOpen} />
-              <ItemText variant="h3" color="white">
+              <ItemText variant="h4" color="white">
                 {email}
               </ItemText>
             </InfoItem>
             <InfoItem>
               <Icon icon={faPhone} />
-              <ItemText variant="h3" color="white">
+              <ItemText variant="h4" color="white">
                 {phone}
               </ItemText>
             </InfoItem>

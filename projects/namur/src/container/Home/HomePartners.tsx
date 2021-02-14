@@ -28,7 +28,7 @@ const Title = styled(Typography)`
   padding: ${({ theme }) => theme.spacing(5)} 0;
 
   ${mq('lg')} {
-    padding: ${({ theme }) => theme.spacing(14)} 0;
+    padding: ${({ theme }) => theme.spacing(8)} 0;
   }
 `;
 const Partner = styled(Link)`

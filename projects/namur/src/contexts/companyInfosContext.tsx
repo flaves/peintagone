@@ -3,7 +3,6 @@ import React, {
   Dispatch,
   SetStateAction,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -37,8 +36,6 @@ export const CompanyInfosContext = createContext<CompanyInfosContextType>(
 
 const CompanyInfosProvider = ({ children }: ProviderProps): JSX.Element => {
   const [companyInfos, setCompanyInfos] = useState<Company>(initialCompany);
-
-  useEffect(() => console.log(companyInfos), [companyInfos]);
 
   const value = useMemo(() => ({ companyInfos, setCompanyInfos }), [
     companyInfos,

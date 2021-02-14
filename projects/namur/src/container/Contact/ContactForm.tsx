@@ -30,10 +30,9 @@ const FormContainer = styled(Container)`
 
 const ContactForm = ({ body }: Props): JSX.Element => {
   const methods = useForm();
-  const { executeFetch, loading } = usePostNetlifyForm('/contact', 'contact');
+  const { executeFetch, loading } = usePostNetlifyForm('/', 'contact');
 
   const onSubmit = async (data: any) => {
-    console.log('form data => ', data);
     await executeFetch(data);
   };
 

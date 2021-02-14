@@ -17,6 +17,8 @@ import renderCategoriesButtons from '@/utils/categories/renderCategoriesButtons'
 import mq from '@/styles/mq';
 
 import { ImageType } from '@/types/image';
+import Link from '@/components/atoms/Link';
+import { css, useTheme } from '@emotion/react';
 
 export type CategoryUid = 'wall' | 'wood' | 'natural' | 'metal' | 'ground';
 
@@ -30,6 +32,7 @@ export interface CategoryProps {
   name?: string;
   backgroundColor?: string;
   image?: ImageType;
+  link?: string;
 }
 
 interface Props {
@@ -145,15 +148,20 @@ const ButtonContainer = styled(Grid)`
     margin-top: ${({ theme }) => theme.spacing(6)};
   }
 `;
-const CategoryButton = styled(Button)`
-  border-width: 2px;
-  border-style: solid;
-  border-color: transparent;
-
-  &:hover {
-    border-color: ${({ theme }) => theme.color.white.main};
-  }
+const ButtonStyled = styled(Button)`
+  background-color: ${({ theme }) => theme.color.white.main};
 `;
+
+// const CategoryButton = styled(Button)`
+//   border-width: 2px;
+//   border-style: solid;
+//   border-color: transparent;
+//   color: ${({ theme }) => theme.color.primary.main};
+//
+//   &:hover {
+//     border-color: ${({ theme }) => theme.color.white.main};
+//   }
+// `;
 const NameGrid = styled(Grid)`
   position: relative;
   z-index: ${({ theme }) => theme.zIndex.content};
@@ -171,7 +179,14 @@ const NameGrid = styled(Grid)`
   }
 `;
 
-const Category = ({ name, image }: CategoryProps): JSX.Element => {
+const Category = ({
+  name,
+  image,
+  link,
+  backgroundColor,
+}: CategoryProps): JSX.Element => {
+  const theme = useTheme();
+
   return (
     <>
       <ImageGrid container md={8} xxs={12}>
@@ -181,9 +196,23 @@ const Category = ({ name, image }: CategoryProps): JSX.Element => {
           sizes="(min-width: 1240px) 250px, 150px"
         />
         <ButtonContainer container justifyContent="center">
-          <CategoryButton variant="contained" color="white">
+          <ButtonStyled
+            as={Link}
+            variant="contained"
+            css={css`
+              background-color: transparent;
+              color: ${theme.color.white.main};
+              border: 2px solid ${theme.color.white.main};
+
+              &:hover {
+                background-color: ${theme.color.white.main};
+                color: ${backgroundColor};
+              }
+            `}
+            {...{ to: link || ``, target: `_blank` }}
+          >
             Découvrir la gamme
-          </CategoryButton>
+          </ButtonStyled>
         </ButtonContainer>
       </ImageGrid>
       <NameGrid container md={2} xxs={12}>
@@ -195,6 +224,7 @@ const Category = ({ name, image }: CategoryProps): JSX.Element => {
 
 const HomePainting = ({ title, categories }: Props): JSX.Element => {
   const [activeCategory, setActiveCategory] = useState<CategoryProps>();
+  console.log(categories);
 
   // Set default
   useEffect(() => categories && setActiveCategory(categories[0]), []);
