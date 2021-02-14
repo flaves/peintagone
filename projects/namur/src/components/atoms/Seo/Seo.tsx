@@ -23,7 +23,7 @@ interface SEOProps {
 
 const SEO = ({
   description,
-  lang = `en`,
+  lang = `fr`,
   meta = [],
   title,
 }: SEOProps): JSX.Element => {
