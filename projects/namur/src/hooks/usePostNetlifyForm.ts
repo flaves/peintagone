@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import useNotifications from '@/hooks/useNotifications';
+import qs from 'querystring';
 
 interface OutProps {
   loading: boolean;
@@ -19,15 +20,6 @@ const usePostNetlifyForm = (url: string, formName: string): OutProps => {
     throw new Error(res.statusText);
   };
 
-  const encode = (data: any) => {
-    return Object.keys(data)
-      .map(
-        (key) =>
-          `${encodeURIComponent(key)} = ${encodeURIComponent(data[key])}`,
-      )
-      .join('&');
-  };
-
   const executeFetch = async (data: any) => {
     setLoading(true);
 
@@ -37,10 +29,9 @@ const usePostNetlifyForm = (url: string, formName: string): OutProps => {
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          // @ts-ignore
-          'form-name': formName,
+        body: qs.stringify({
           ...data,
+          'form-name': formName,
         }),
       });
 
