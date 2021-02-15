@@ -195,7 +195,7 @@ const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
               <HeroImage
                 src={image?.url}
                 alt={image?.alt}
-                sizes="(max-width: 1240px) 100vw, 50vw"
+                sizes="(min-width: 980px) 40vw, 100vw"
               />
             </ImageContainer>
           )}
