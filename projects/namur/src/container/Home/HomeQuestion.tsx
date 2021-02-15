@@ -81,6 +81,7 @@ const HomeQuestion = ({
       <Background
         classes={{ content: contentContainer }}
         overlay
+        sizes="(min-width: 980px) 1200px, 100vw"
         {...background}
       >
         <Title color="white" variant="h2">

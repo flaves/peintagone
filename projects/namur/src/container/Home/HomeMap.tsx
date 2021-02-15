@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { graphql } from 'gatsby';
 import mapboxgl from 'mapbox-gl';
+
 import styled from '@emotion/styled';
 import {
   faClock,
@@ -17,6 +18,10 @@ import Container from '@/components/atoms/Layout/Container';
 import { useCompanyInfosContext } from '@/contexts/companyInfosContext';
 
 import mq from '@/styles/mq';
+
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 interface Props {
   title?: React.ReactNode;

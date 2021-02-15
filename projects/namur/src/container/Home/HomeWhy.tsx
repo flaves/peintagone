@@ -132,7 +132,7 @@ const HomeWhy = ({ title, list, sideImage }: Props): JSX.Element => {
         <SideImage
           src={sideImage?.url}
           alt={sideImage?.alt}
-          sizes="(min-width: 980) 50vw, 100vw"
+          sizes="(min-width: 980px) 50vw, 100vw"
         />
       </GridImage>
     </Root>
