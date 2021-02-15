@@ -34,6 +34,8 @@ const ContactForm = ({ body }: Props): JSX.Element => {
 
   const onSubmit = async (data: any) => {
     await executeFetch(data);
+
+    methods.reset();
   };
 
   return (
