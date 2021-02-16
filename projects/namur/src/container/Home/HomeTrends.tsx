@@ -162,6 +162,8 @@ const HomeTrends = ({ title, text, button, trends }: Props): JSX.Element => {
               mouseTracking
               disableDotsControls
               infinite
+              autoPlay
+              autoPlayInterval={1000}
               responsive={{
                 0: { items: 1 },
                 980: { items: 2 },
