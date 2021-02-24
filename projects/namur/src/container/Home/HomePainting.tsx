@@ -48,7 +48,7 @@ const Root = styled.div<RootProps>`
   padding-bottom: ${({ theme }) => theme.spacing(4)};
 
   ${mq('md')} {
-    margin-top: ${({ theme }) => theme.spacing(10)};
+    margin-top: ${({ theme }) => theme.spacing(25)};
     padding-top: ${({ theme }) => theme.spacing(4)};
     padding-bottom: ${({ theme }) => theme.spacing(8)};
   }

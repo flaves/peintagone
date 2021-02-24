@@ -35,7 +35,7 @@ const Root = styled(Container)<Props>`
   text-align: center;
 
   ${mq('lg')} {
-    margin-top: ${({ theme }) => theme.spacing(25)};
+    margin-top: ${({ theme }) => theme.spacing(10)};
     text-align: left;
   }
 `;

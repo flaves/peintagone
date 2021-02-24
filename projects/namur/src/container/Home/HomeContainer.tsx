@@ -187,10 +187,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   return (
     <>
       <HomeHero {...HeroProps} />
+      <HomePainting {...PaintingProps} />
       <Section id="products">
         <HomeProducts {...ProductsProps} />
       </Section>
-      <HomePainting {...PaintingProps} />
       <Section id="trends">
         <HomeTrends {...TrendsProps} />
       </Section>
