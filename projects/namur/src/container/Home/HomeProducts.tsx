@@ -2,15 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 
-import Img from '@/components/atoms/Img';
-import Link from '@/components/atoms/Link';
 import Typography from '@/components/atoms/Typography';
 import Container from '@/components/atoms/Layout/Container';
 
 import mq from '@/styles/mq';
 
 import LinkType from '@/types/link';
-import Grid from '@/components/atoms/Layout/Grid';
 
 interface TypeType {
   type_name?: string;
@@ -26,7 +23,7 @@ interface ProductProps {
   category_name?: string;
   category_types?: TypeType[];
   category_partners?: PartnerType[];
-  setCurrentId: (id?: string) => void;
+  setCurrentId?: (id?: string) => void;
   active?: boolean;
 }
 
@@ -111,7 +108,7 @@ const ProductPartners = styled.ul`
     max-height: 120px;
   }
 `;
-const ProductPartner = styled.li`
+const ProductPartner = styled.a`
   margin-bottom: ${({ theme }) => theme.spacing(1)};
   font-size: 2rem;
   font-weight: 700;
@@ -125,7 +122,10 @@ const Product = ({
   active,
 }: ProductProps): JSX.Element => {
   return (
-    <ProductContainer onClick={() => setCurrentId(id)} active={active}>
+    <ProductContainer
+      onClick={() => setCurrentId && setCurrentId(id)}
+      active={active}
+    >
       <ProductName>{category_name}</ProductName>
     </ProductContainer>
   );
@@ -145,7 +145,13 @@ const Partners = ({ partners }: { partners?: PartnerType[] }) => {
   return (
     <ProductPartners>
       {partners?.map((partner) => (
-        <ProductPartner>{partner.partner_name}</ProductPartner>
+        <ProductPartner
+          href={partner.partner_link?.url as string}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {partner.partner_name}
+        </ProductPartner>
       ))}
     </ProductPartners>
   );
