@@ -1,400 +1,386 @@
 {
-  "Main": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "uid",
-        "placeholder": "uid"
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid",
+        "placeholder" : "uid"
       }
     },
-    "meta_title": {
-      "type": "Text",
-      "config": {
-        "label": "meta title",
-        "placeholder": "meta title"
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta title",
+        "placeholder" : "meta title"
       }
     },
-    "meta_description": {
-      "type": "Text",
-      "config": {
-        "label": "meta description",
-        "placeholder": "meta description"
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta description",
+        "placeholder" : "meta description"
       }
     }
   },
-  "Hero": {
-    "hero_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "hero title",
-        "placeholder": "Hero title"
+  "Hero" : {
+    "hero_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "hero title",
+        "placeholder" : "Hero title"
       }
     },
-    "hero_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "Hero text",
-        "placeholder": "hero text"
+    "hero_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Hero text",
+        "placeholder" : "hero text"
       }
     },
-    "hero_text_mobile": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "hero text mobile",
-        "placeholder": "hero text on mobile devices"
+    "hero_text_mobile" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "hero text mobile",
+        "placeholder" : "hero text on mobile devices"
       }
     },
-    "hero_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "hero image"
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "hero image"
       }
     }
   },
-  "Products": {
-    "product_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "product section title",
-        "placeholder": "Product section title"
+  "Products" : {
+    "product_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "product section title",
+        "placeholder" : "Product section title"
       }
     },
-    "product_section_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "product section text",
-        "placeholder": "Product section test"
+    "product_section_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "product section text",
+        "placeholder" : "Product section text"
       }
     },
-    "products": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "image": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "image"
-            }
-          },
-          "name": {
-            "type": "Text",
-            "config": {
-              "label": "name",
-              "placeholder": "Product name"
-            }
-          },
-          "link": {
-            "type": "Link",
-            "config": {
-              "label": "link",
-              "placeholder": "Link to product"
+    "products" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "product_category" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "label" : "product_category",
+              "placeholder" : "Product"
             }
           }
         },
-        "label": "products"
+        "label" : "products"
       }
     }
   },
-  "Painting": {
-    "painting_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "painting section title",
-        "placeholder": "Title"
+  "Painting" : {
+    "painting_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "painting section title",
+        "placeholder" : "Title"
       }
     },
-    "paintings": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "painting_category": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "label": "painting category",
-              "placeholder": "Category"
+    "paintings" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "painting_category" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "label" : "painting category",
+              "placeholder" : "Category"
             }
           }
         },
-        "label": "paintings"
+        "label" : "paintings"
       }
     }
   },
-  "Trends": {
-    "trends_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "trends section title",
-        "placeholder": "Title"
+  "Trends" : {
+    "trends_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "trends section title",
+        "placeholder" : "Title"
       }
     },
-    "trends_section_text": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph, strong, em",
-        "label": "trends_section_text"
+    "trends_section_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph, strong, em",
+        "label" : "trends_section_text"
       }
     },
-    "trends_button_label": {
-      "type": "Text",
-      "config": {
-        "label": "trends button label",
-        "placeholder": "Button label"
+    "trends_button_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "trends button label",
+        "placeholder" : "Button label"
       }
     },
-    "trends_button_link": {
-      "type": "Link",
-      "config": {
-        "allowTargetBlank": true,
-        "label": "trends button link",
-        "placeholder": "Button link"
+    "trends_button_link" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "trends button link",
+        "placeholder" : "Button link"
       }
     },
-    "trends": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "trend_image": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "trend image"
+    "trends" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "trend_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "trend image"
             }
           },
-          "trend_color": {
-            "type": "Color",
-            "config": {
-              "label": "trend color"
+          "trend_color" : {
+            "type" : "Color",
+            "config" : {
+              "label" : "trend color"
             }
           },
-          "trend_name": {
-            "type": "Text",
-            "config": {
-              "label": "trend name",
-              "placeholder": "Name"
+          "trend_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "trend name",
+              "placeholder" : "Name"
             }
           }
         },
-        "label": "trends"
+        "label" : "trends"
       }
     }
   },
-  "Why": {
-    "why_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "why section title",
-        "placeholder": "Title"
+  "Why" : {
+    "why_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "why section title",
+        "placeholder" : "Title"
       }
     },
-    "why_section_list": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "list_item": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
-              "label": "list item",
-              "placeholder": "List item text"
+    "why_section_list" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "list_item" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em",
+              "label" : "list item",
+              "placeholder" : "List item text"
             }
           }
         },
-        "label": "why section list"
+        "label" : "why section list"
       }
     },
-    "why_section_side_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "why section side image"
+    "why_section_side_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "why section side image"
       }
     }
   },
-  "Partners": {
-    "partners_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "partners section title",
-        "placeholder": "Title"
+  "Partners" : {
+    "partners_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "partners section title",
+        "placeholder" : "Title"
       }
     },
-    "partners": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "name": {
-            "type": "Text",
-            "config": {
-              "label": "name",
-              "placeholder": "Name"
+    "partners" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "name",
+              "placeholder" : "Name"
             }
           },
-          "link": {
-            "type": "Link",
-            "config": {
-              "allowTargetBlank": true,
-              "label": "link",
-              "placeholder": "Link"
+          "link" : {
+            "type" : "Link",
+            "config" : {
+              "allowTargetBlank" : true,
+              "label" : "link",
+              "placeholder" : "Link"
             }
           }
         },
-        "label": "partners"
+        "label" : "partners"
       }
     }
   },
-  "Team": {
-    "team_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "team section title",
-        "placeholder": "Title"
+  "Team" : {
+    "team_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "team section title",
+        "placeholder" : "Title"
       }
     },
-    "team_section_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "team section text",
-        "placeholder": "Text"
+    "team_section_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "team section text",
+        "placeholder" : "Text"
       }
     },
-    "team_section_side_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "team section side image"
+    "team_section_side_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "team section side image"
       }
     },
-    "team_members": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "image_1": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "image 1"
+    "team_members" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image_1" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "image 1"
             }
           },
-          "image_2": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "image 2"
+          "image_2" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "image 2"
             }
           },
-          "role": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
-              "allowTargetBlank": true,
-              "label": "role",
-              "placeholder": "Role"
+          "role" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+              "allowTargetBlank" : true,
+              "label" : "role",
+              "placeholder" : "Role"
             }
           },
-          "name": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
-              "allowTargetBlank": true,
-              "label": "name",
-              "placeholder": "Name"
+          "name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+              "allowTargetBlank" : true,
+              "label" : "name",
+              "placeholder" : "Name"
             }
           },
-          "description": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item, rtl",
-              "allowTargetBlank": true,
-              "label": "description",
-              "placeholder": "description"
+          "description" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, embed, list-item, o-list-item, rtl",
+              "allowTargetBlank" : true,
+              "label" : "description",
+              "placeholder" : "description"
             }
           }
         },
-        "label": "team members"
+        "label" : "team members"
       }
     }
   },
-  "Map": {
-    "map_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "map section title",
-        "placeholder": "Title"
+  "Map" : {
+    "map_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "map section title",
+        "placeholder" : "Title"
       }
     }
   },
-  "Question": {
-    "question_background": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "question background"
+  "Question" : {
+    "question_background" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "question background"
       }
     },
-    "question_mobile_background": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "question mobile background"
+    "question_mobile_background" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "question mobile background"
       }
     },
-    "question_section_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "question section title",
-        "placeholder": "Title"
+    "question_section_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "question section title",
+        "placeholder" : "Title"
       }
     },
-    "question_section_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "question section text",
-        "placeholder": "Text"
+    "question_section_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "question section text",
+        "placeholder" : "Text"
       }
     },
-    "question_button_label": {
-      "type": "Text",
-      "config": {
-        "label": "question button label",
-        "placeholder": "Button label"
+    "question_button_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "question button label",
+        "placeholder" : "Button label"
       }
     },
-    "question_button_link": {
-      "type": "Link",
-      "config": {
-        "label": "question button link",
-        "placeholder": "Button link"
+    "question_button_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "question button link",
+        "placeholder" : "Button link"
       }
     }
   }
