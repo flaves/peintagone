@@ -1,0 +1,49 @@
+{
+  "Main" : {
+    "category_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "category_name",
+        "placeholder" : "Category name"
+      }
+    },
+    "category_types" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "type_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "type_name",
+              "placeholder" : "Type name"
+            }
+          }
+        },
+        "label" : "category_types"
+      }
+    },
+    "category_partners" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "partner_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "partner_name",
+              "placeholder" : "Partner name"
+            }
+          },
+          "partner_link" : {
+            "type" : "Link",
+            "config" : {
+              "allowTargetBlank" : true,
+              "label" : "partner_link",
+              "placeholder" : "Partner link"
+            }
+          }
+        },
+        "label" : "category_partners"
+      }
+    }
+  }
+}

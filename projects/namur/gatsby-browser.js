@@ -1,4 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 /* eslint-disable */
 import wrapWithProvider from './wrapWithProvider';

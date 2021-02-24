@@ -65,17 +65,19 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   const ProductsProps = {
     title: <RichText render={product_section_title?.raw} />,
     text: <RichText render={product_section_text?.raw} />,
-    products: products?.map((product: any) => ({
-      image: {
-        url: product?.image?.url,
-        alt: product?.image?.alt,
-      },
-      name: product?.name,
-      link: {
-        url: product?.link?.url,
-        target: product?.link?.target,
-      },
-    })),
+    products: products?.map((p: any) => {
+      const { id, data: productData } = p?.product_category?.document || {};
+
+      const { category_name, category_types, category_partners } =
+        productData || {};
+
+      return {
+        id,
+        category_name,
+        category_types,
+        category_partners,
+      };
+    }),
   };
 
   const PaintingProps = {

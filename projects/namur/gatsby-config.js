@@ -44,16 +44,9 @@ module.exports = {
           home_page: require('./src/schemas/home_page.json'),
           contact_page: require('./src/schemas/contact_page.json'),
           painting_category: require('./src/schemas/painting_category.json'),
+          product_category: require('./src/schemas/product_category.json'),
         },
         linkResolver: require('./src/utils/linkResolver.ts'),
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `r8mwe5qbt97f`,
-        accessToken: process.env.CONTENTFUL_TOKEN,
-        environment: `develop`,
       },
     },
     {
