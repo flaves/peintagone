@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['gitmoji', './node_modules/commitlint-config-gitmoji'],
+  extends: ['gitmoji'],
   parserPreset: {
     parserOpts: {
       headerPattern: /^(:\w*:)(?:\s)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
