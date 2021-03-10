@@ -1,30 +1,20 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { graphql } from 'gatsby';
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
+import { v4 } from 'uuid';
 
 import Typography from '@/components/atoms/Typography';
 import Container from '@/components/atoms/Layout/Container';
+import Img from '@/components/atoms/Img';
 
 import mq from '@/styles/mq';
 
-import LinkType from '@/types/link';
-
-interface TypeType {
-  type_name?: string;
-}
-
-interface PartnerType {
-  partner_name?: string;
-  partner_link?: LinkType;
-}
-
 interface ProductProps {
-  id?: string;
+  uid?: string;
   category_name?: string;
-  category_types?: TypeType[];
-  category_partners?: PartnerType[];
-  setCurrentId?: (id?: string) => void;
-  active?: boolean;
+  category_image?: {
+    url?: string;
+  };
 }
 
 interface Props {
@@ -44,12 +34,14 @@ const Root = styled(Container)<Props>`
     text-align: left;
   }
 `;
+
 const ProductsText = styled(Typography)`
   display: none;
   ${mq('lg')} {
     display: block;
   }
 `;
+
 const ProductsContainer = styled.ul`
   margin-top: ${({ theme }) => theme.spacing(2)};
   padding-left: ${({ theme }) => theme.spacing(2)};
@@ -63,6 +55,7 @@ const ProductsContainer = styled.ul`
     display: flex;
   }
 `;
+
 const ProductItem = styled.li`
   ${mq(`lg`)} {
     flex: 0 0 20%;
@@ -70,111 +63,43 @@ const ProductItem = styled.li`
     padding: 0 1rem;
   }
 `;
-const ProductContainer = styled.article<{ active?: boolean }>`
-  background-color: ${({ active, theme }) =>
-    active ? theme.color.primary.main : theme.color.white.main};
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing(1)};
-  color: ${({ active, theme }) =>
-    active ? theme.color.white.main : theme.color.primary.main};
+
+const ProductContainer = styled(Link)`
+  display: block;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
 `;
+
+const ProductImg = styled(Img)`
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+`;
+
 const ProductName = styled.p`
   font-size: 1.75rem;
   font-weight: 800;
-`;
-const ProductTypes = styled.ul`
-  margin: ${({ theme }) => theme.spacing(2)} 0;
-
-  ${mq(`lg`)} {
-    display: flex;
-    flex-wrap: wrap;
-  }
-`;
-const ProductType = styled.li`
-  background-color: ${({ theme }) => theme.color.secondary.main};
-  margin-right: ${({ theme }) => theme.spacing(2)};
-  padding: ${({ theme }) => theme.spacing(1)};
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
-`;
-const ProductPartners = styled.ul`
-  ${mq(`md`)} {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    max-height: 120px;
-  }
-`;
-const ProductPartner = styled.a`
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
-  font-size: 2rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.color.primary.main};
+  margin-top: ${({ theme }) => theme.spacing(1)};
 `;
 
 const Product = ({
-  id,
+  uid,
   category_name,
-  setCurrentId,
-  active,
+  category_image,
 }: ProductProps): JSX.Element => {
   return (
-    <ProductContainer
-      onClick={() => setCurrentId && setCurrentId(id)}
-      active={active}
-    >
+    <ProductContainer to={`/categorie/${uid}`}>
+      <ProductImg src={category_image?.url} />
       <ProductName>{category_name}</ProductName>
     </ProductContainer>
   );
 };
 
-const Types = ({ types }: { types?: TypeType[] }) => {
-  return (
-    <ProductTypes>
-      {types?.map((type) => (
-        <ProductType>{type.type_name}</ProductType>
-      ))}
-    </ProductTypes>
-  );
-};
-
-const Partners = ({ partners }: { partners?: PartnerType[] }) => {
-  return (
-    <ProductPartners>
-      {partners?.map((partner) => (
-        <ProductPartner
-          href={partner.partner_link?.url as string}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {partner.partner_name}
-        </ProductPartner>
-      ))}
-    </ProductPartners>
-  );
-};
-
 const HomeProducts = ({ title, text, products }: Props): JSX.Element => {
-  const [currentId, setCurrentId] = useState<string>();
-
-  useEffect(() => setCurrentId(products?.[0]?.id), []);
-
-  const currentCategory = useMemo(
-    () => products?.find((p) => p?.id === currentId),
-    [currentId],
-  );
-
-  const Products = products?.map((product, index) => (
-    <ProductItem>
-      <Product
-        {...product}
-        key={index.toString()}
-        setCurrentId={setCurrentId}
-        active={product?.id === currentId}
-      />
+  const Products = products?.map((product) => (
+    <ProductItem key={v4()}>
+      <Product {...product} />
     </ProductItem>
   ));
 
@@ -183,8 +108,6 @@ const HomeProducts = ({ title, text, products }: Props): JSX.Element => {
       <Typography variant="h2">{title}</Typography>
       <ProductsText variant="textMd">{text}</ProductsText>
       <ProductsContainer>{Products}</ProductsContainer>
-      <Types types={currentCategory?.category_types} />
-      <Partners partners={currentCategory?.category_partners} />
     </Root>
   );
 };
@@ -199,6 +122,7 @@ export const query = graphql`
     }
     products {
       product_category {
+        uid
         document {
           ... on PrismicProductCategory {
             ...Product

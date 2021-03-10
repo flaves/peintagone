@@ -1,0 +1,26 @@
+{
+  "Main": {
+    "type_name": {
+      "type": "Text",
+      "config": {
+        "label": "type_name"
+      }
+    },
+    "type_images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "type_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "type_image"
+            }
+          }
+        },
+        "label": "type_images"
+      }
+    }
+  }
+}

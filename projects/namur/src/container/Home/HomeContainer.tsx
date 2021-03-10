@@ -66,19 +66,18 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     title: <RichText render={product_section_title?.raw} />,
     text: <RichText render={product_section_text?.raw} />,
     products: products?.map((p: any) => {
-      const { id, data: productData } = p?.product_category?.document || {};
+      const { data: productData } = p?.product_category?.document || {};
 
-      const { category_name, category_types, category_partners } =
-        productData || {};
+      const { category_name, category_image } = productData || {};
 
       return {
-        id,
+        uid: p?.product_category?.uid,
         category_name,
-        category_types,
-        category_partners,
+        category_image,
       };
     }),
   };
+  console.log(ProductsProps);
 
   const PaintingProps = {
     title: <RichText render={painting_section_title?.raw} />,

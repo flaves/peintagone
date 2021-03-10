@@ -45,6 +45,7 @@ module.exports = {
           contact_page: require('./src/schemas/contact_page.json'),
           painting_category: require('./src/schemas/painting_category.json'),
           product_category: require('./src/schemas/product_category.json'),
+          product_type: require('./src/schemas/product_type.json'),
         },
         linkResolver: require('./src/utils/linkResolver.ts'),
       },

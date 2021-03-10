@@ -6,15 +6,8 @@ export const ProductFragment = graphql`
     id
     data {
       category_name
-      category_types {
-        type_name
-      }
-      category_partners {
-        partner_name
-        partner_link {
-          id
-          url
-        }
+      category_image {
+        url
       }
     }
   }
