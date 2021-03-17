@@ -7,11 +7,12 @@ import Button from '@/components/atoms/Button';
 import Link from '@/components/atoms/Link';
 import Container from '@/components/atoms/Layout/Container';
 import Background from '@/components/atoms/Background';
+import Typography from '@/components/atoms/Typography';
+
+import mq from '@/styles/mq';
 
 import { ButtonProps } from '@/types/button';
 import { BackgroundProps } from '@/components/atoms/Background/Background';
-import Typography from '@/components/atoms/Typography';
-import mq from '@/styles/mq';
 
 interface Props {
   background?: BackgroundProps;
@@ -108,12 +109,14 @@ const HomeQuestion = ({
 export const query = graphql`
   fragment HomeQuestion on PrismicHomePageDataType {
     question_background {
-      url
-      alt
+      fluid {
+        ...GatsbyPrismicImageFluid
+      }
     }
     question_mobile_background {
-      url
-      alt
+      fluid {
+        ...GatsbyPrismicImageFluid
+      }
     }
     question_section_title {
       raw

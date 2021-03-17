@@ -239,8 +239,9 @@ export const query = graphql`
     data {
       social_media {
         icon {
-          alt
-          url
+          fluid {
+            ...GatsbyPrismicImageFluid
+          }
         }
         link {
           url

@@ -7,7 +7,9 @@ export const ProductFragment = graphql`
     data {
       category_name
       category_image {
-        url
+        fluid {
+          ...GatsbyPrismicImageFluid
+        }
       }
     }
   }

@@ -1,25 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Grid from '@/components/atoms/Layout/Grid';
 import mq from '@/styles/mq';
 import Typography from '@/components/atoms/Typography';
-import Img from '@/components/atoms/Img';
 import Container from '@/components/atoms/Layout/Container';
 
 import { ImageType } from '@/types/image';
 
 interface MemberProps {
-  image_1?: ImageType;
-  image_2?: ImageType;
+  image_1?: ImageType | null | undefined;
+  image_2?: ImageType | null | undefined;
   role?: React.ReactNode;
   name?: React.ReactNode;
   description?: React.ReactNode;
 }
 
 interface Props {
-  image?: ImageType;
+  image?: ImageType | null | undefined;
   title?: React.ReactNode;
   text?: React.ReactNode;
   members?: MemberProps[];
@@ -54,7 +54,7 @@ const SideImageContainer = styled(Grid)`
     display: flex;
   }
 `;
-const SideImage = styled(Img)`
+const SideImage = styled(Image)`
   display: block;
   width: 100%;
   height: 100%;
@@ -129,7 +129,7 @@ const MemberContainer = styled.div`
     padding-right: ${({ theme }) => theme.spacing(3.5)};
   }
 `;
-const MemberImage = styled(Img)`
+const MemberImage = styled(Image)`
   ${mq('md')} {
     height: 200px;
     object-fit: cover;
@@ -169,8 +169,10 @@ const Fade = styled.div`
     height: 350px;
   }
 
-  & > img {
+  & > div {
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     transition: opacity 0.5s ease;
@@ -185,7 +187,7 @@ const Fade = styled.div`
   }
 
   &:hover {
-    & > img {
+    & > div {
       &:first-of-type {
         opacity: 0;
       }
@@ -207,20 +209,12 @@ const Member = ({
   return (
     <MemberContainer>
       <Fade>
-        <MemberImage
-          src={image_1?.url}
-          alt={image_1?.alt}
-          height={350}
-          width={300}
-          sizes="300px"
-        />
-        <MemberImage
-          src={image_2?.url}
-          alt={image_2?.alt}
-          height={350}
-          width={300}
-          sizes="300px"
-        />
+        <div>
+          <MemberImage fluid={image_1?.fluid as FluidObject} />
+        </div>
+        <div>
+          <MemberImage fluid={image_2?.fluid as FluidObject} />
+        </div>
       </Fade>
       <Role color="primary" variant="textSm">
         {role}
@@ -241,7 +235,7 @@ const HomeTeam = ({ title, text, image, members }: Props): JSX.Element => {
       <RootGrid container>
         <SideImageContainer lg={5} md={6}>
           {/* Sizes matches grid size */}
-          <SideImage src={image?.url} alt={image?.alt} sizes="41.6vw" />
+          <SideImage fluid={image?.fluid as FluidObject} />
         </SideImageContainer>
         <ContentContainer lg={7} md={6} xxs={12}>
           <Title variant="h2">{title}</Title>
@@ -262,17 +256,20 @@ export const query = graphql`
       raw
     }
     team_section_side_image {
-      url
-      alt
+      fluid {
+        ...GatsbyPrismicImageFluid
+      }
     }
     team_members {
       image_1 {
-        url
-        alt
+        fluid {
+          ...GatsbyPrismicImageFluid
+        }
       }
       image_2 {
-        url
-        alt
+        fluid {
+          ...GatsbyPrismicImageFluid
+        }
       }
       role {
         raw

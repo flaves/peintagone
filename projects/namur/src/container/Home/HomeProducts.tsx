@@ -2,19 +2,19 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { v4 } from 'uuid';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Typography from '@/components/atoms/Typography';
 import Container from '@/components/atoms/Layout/Container';
-import Img from '@/components/atoms/Img';
 
 import mq from '@/styles/mq';
+
+import { ImageType } from '@/types/image';
 
 interface ProductProps {
   uid?: string;
   category_name?: string;
-  category_image?: {
-    url?: string;
-  };
+  category_image?: ImageType | undefined | null;
 }
 
 interface Props {
@@ -28,6 +28,7 @@ const Root = styled(Container)<Props>`
   z-index: ${({ theme }) => theme.zIndex.content};
   margin-top: ${({ theme }) => theme.spacing(5)};
   text-align: center;
+  display: none;
 
   ${mq('lg')} {
     margin-top: ${({ theme }) => theme.spacing(10)};
@@ -71,7 +72,7 @@ const ProductContainer = styled(Link)`
   text-align: center;
 `;
 
-const ProductImg = styled(Img)`
+const ProductImg = styled(Image)`
   width: 100%;
   max-height: 220px;
   object-fit: cover;
@@ -90,7 +91,7 @@ const Product = ({
 }: ProductProps): JSX.Element => {
   return (
     <ProductContainer to={`/categorie/${uid}`}>
-      <ProductImg src={category_image?.url} />
+      <ProductImg fluid={category_image?.fluid as FluidObject} />
       <ProductName>{category_name}</ProductName>
     </ProductContainer>
   );

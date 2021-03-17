@@ -6,9 +6,10 @@ import AliceCarousel from 'react-alice-carousel';
 import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
 import Grid from '@/components/atoms/Layout/Grid';
-import Link from '@/components/atoms/Link';
 
 import mq from '@/styles/mq';
+
+import Link from '@/components/atoms/Link';
 
 interface PartnerProps {
   name?: string | null;
