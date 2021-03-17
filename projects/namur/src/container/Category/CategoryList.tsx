@@ -64,8 +64,6 @@ const CategoryList = ({ data }: Props) => {
     }),
   );
 
-  console.log(types);
-
   const renderTypes = () => (
     <List container>
       {types?.map((type) => (

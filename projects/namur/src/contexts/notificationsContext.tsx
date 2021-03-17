@@ -72,7 +72,6 @@ const NotifContextProvider = ({ children }: ProviderProps): JSX.Element => {
   };
 
   const removeNotif = (id: string) => {
-    console.log('dispatch remove id = ', id);
     dispatch({ type: ActionType.REMOVE, payload: id });
   };
 
