@@ -1,7 +1,7 @@
 import React from 'react';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Link from '@/components/atoms/Link';
-import Img from '@/components/atoms/Img';
 
 import { ImageType } from '@/types/image';
 import LinkType from '@/types/link';
@@ -23,24 +23,17 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-const SocialIcon = styled(Img)`
+const SocialIcon = styled(Image)`
   width: 25px;
   height: 25px;
-  object-fit: contain;
 `;
 
 const Social = (props: SocialProps): JSX.Element => {
   const { icon, link } = props;
 
   return (
-    <LinkStyled to={link.url} target={link.target}>
-      <SocialIcon
-        src={icon.url}
-        alt={icon.alt}
-        width={30}
-        height={30}
-        sizes="30px"
-      />
+    <LinkStyled to={link.url as string} target={link.target as string}>
+      <SocialIcon fluid={icon?.fluid as FluidObject} />
     </LinkStyled>
   );
 };

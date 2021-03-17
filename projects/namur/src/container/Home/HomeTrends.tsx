@@ -3,21 +3,22 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import AliceCarousel from 'react-alice-carousel';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Button from '@/components/atoms/Button';
 import Link from '@/components/atoms/Link';
 import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
 import Grid from '@/components/atoms/Layout/Grid';
-import Img from '@/components/atoms/Img';
 import Arrow from '@/components/atoms/Arrow';
+
+import mq from '@/styles/mq';
 
 import { ButtonProps } from '@/types/button';
 import { ImageType } from '@/types/image';
-import mq from '@/styles/mq';
 
 interface TrendProps {
-  image?: ImageType;
+  image?: ImageType | undefined | null;
   name?: string | null;
   color?: string | null;
   onDragStart?: (e: React.MouseEvent) => void;
@@ -65,7 +66,7 @@ const TrendContainer = styled.div`
   margin-left: ${({ theme }) => theme.spacing(2)};
   margin-right: ${({ theme }) => theme.spacing(2)};
 `;
-const TrendImage = styled(Img)`
+const TrendImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0;
@@ -118,7 +119,7 @@ const MobileButton = styled.div`
 const Trend = ({ name, image, color }: TrendProps): JSX.Element => {
   return (
     <TrendContainer>
-      <TrendImage src={image?.url} alt={image?.alt} sizes="400px" />
+      <TrendImage fluid={image?.fluid as FluidObject} />
       <TrendButton
         variant="contained"
         css={css`
@@ -210,8 +211,9 @@ export const query = graphql`
     }
     trends {
       trend_image {
-        url
-        alt
+        fluid {
+          ...GatsbyPrismicImageFluid
+        }
       }
       trend_name
       trend_color

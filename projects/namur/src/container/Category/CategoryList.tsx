@@ -2,9 +2,9 @@ import React from 'react';
 import { v4 } from 'uuid';
 import styled from '@emotion/styled';
 import ReactAliceCarousel from 'react-alice-carousel';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Grid from '@/components/atoms/Layout/Grid';
-import Img from '@/components/atoms/Img';
 
 import mq from '@/styles/mq';
 
@@ -37,10 +37,8 @@ const Item = styled(Grid)`
   }
 `;
 
-const TypeImg = styled(Img)`
-  width: 100%;
-  max-height: 280px;
-  object-fit: cover;
+const TypeImg = styled(Image)`
+  height: 260px;
 `;
 
 const TypeText = styled.p`
@@ -59,11 +57,14 @@ const CategoryList = ({ data }: Props) => {
       name: product_type?.product_type?.document?.data?.type_name,
       images: product_type?.product_type?.document?.data?.type_images?.map(
         (image) => ({
-          url: image?.type_image?.url,
+          // @ts-ignore
+          fluid: image?.type_image?.fluid,
         }),
       ),
     }),
   );
+
+  console.log(types);
 
   const renderTypes = () => (
     <List container>
@@ -77,7 +78,7 @@ const CategoryList = ({ data }: Props) => {
             autoPlayInterval={1500}
           >
             {type?.images?.map((image) => (
-              <TypeImg src={image?.url} />
+              <TypeImg fluid={image?.fluid as FluidObject} />
             ))}
           </ReactAliceCarousel>
           <TypeText>{type?.name}</TypeText>

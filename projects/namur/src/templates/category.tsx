@@ -32,8 +32,9 @@ export const query = graphql`
         category_name
         category_description
         category_image {
-          url
-          alt
+          fluid {
+            ...GatsbyPrismicImageFluid
+          }
         }
         product_types {
           product_type {
@@ -44,7 +45,9 @@ export const query = graphql`
                   type_name
                   type_images {
                     type_image {
-                      url
+                      fluid {
+                        ...GatsbyPrismicImageFluid
+                      }
                     }
                   }
                 }

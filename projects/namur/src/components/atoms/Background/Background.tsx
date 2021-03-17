@@ -1,10 +1,11 @@
 import React from 'react';
 import { css, SerializedStyles, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
-
-import Img from '@/components/atoms/Img';
+import Image, { FluidObject } from 'gatsby-image';
 
 import mq from '@/styles/mq';
+
+import { ImageType } from '@/types/image';
 
 interface ClassesProps {
   root?: SerializedStyles;
@@ -14,10 +15,8 @@ interface ClassesProps {
 }
 
 export interface BackgroundProps {
-  backgroundUrl?: string | null;
-  backgroundAlt?: string | null;
-  mobileUrl?: string | null;
-  mobileAlt?: string | null;
+  desktop?: ImageType | null | undefined;
+  mobile?: ImageType | null | undefined;
   height?: number;
   width?: number;
   sizes?: string | null;
@@ -33,13 +32,17 @@ const Root = styled.div<BackgroundProps>`
   height: 100%;
   width: 100%;
 `;
-const StyledImg = styled(Img)`
+const ImageContainer = styled.div`
   position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  object-fit: cover;
 `;
+
+const StyledImg = styled(Image)``;
 const DesktopImg = styled(StyledImg)`
   display: none;
 
@@ -79,10 +82,8 @@ const displayOnMobile = css`
 `;
 
 const Background = ({
-  backgroundUrl,
-  backgroundAlt,
-  mobileUrl,
-  mobileAlt,
+  desktop,
+  mobile,
   height,
   width,
   sizes,
@@ -92,7 +93,7 @@ const Background = ({
   overlay,
   ...rest
 }: BackgroundProps): JSX.Element => {
-  if (!backgroundUrl) return <div />;
+  if (!desktop) return <div />;
 
   const rootClassName = classes?.root;
   const backgroundClassName = classes?.background;
@@ -101,29 +102,28 @@ const Background = ({
 
   return (
     <Root css={[rootClassName, overlay && setOverlay]}>
-      <DesktopImg
-        src={backgroundUrl}
-        alt={backgroundAlt || ''}
-        height={height}
-        width={width}
-        sizes={sizes || '100vw'}
-        css={[
-          !mobileUrl && displayOnMobile,
-          fit === 'contain' && fitContain,
-          backgroundClassName,
-        ]}
-        {...rest}
-      />
-      {mobileUrl && (
-        <MobileImg
-          src={mobileUrl}
-          alt={mobileAlt || ''}
-          height={height}
-          width={width}
-          sizes={sizes || '100vw'}
-          css={[fit === 'contain' && fitContain, backgroundMobileClassName]}
+      <ImageContainer>
+        <DesktopImg
+          fluid={desktop?.fluid as FluidObject}
+          css={[
+            !mobile && displayOnMobile,
+            fit === 'contain' && fitContain,
+            backgroundClassName,
+            css`
+              height: 400px;
+            `,
+          ]}
           {...rest}
         />
+      </ImageContainer>
+      {mobile && (
+        <ImageContainer>
+          <MobileImg
+            fluid={mobile?.fluid as FluidObject}
+            css={[fit === 'contain' && fitContain, backgroundMobileClassName]}
+            {...rest}
+          />
+        </ImageContainer>
       )}
       <Content css={contentClassName}>{children}</Content>
     </Root>

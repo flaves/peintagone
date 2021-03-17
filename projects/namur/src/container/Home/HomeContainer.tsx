@@ -56,10 +56,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     title: <RichText render={hero_title?.raw} />,
     text: <RichText render={hero_text?.raw} />,
     textMobile: <RichText render={hero_text_mobile?.raw} />,
-    image: {
-      url: hero_image?.url,
-      alt: hero_image?.alt,
-    },
+    image: hero_image,
   };
 
   const ProductsProps = {
@@ -77,7 +74,6 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
       };
     }),
   };
-  console.log(ProductsProps);
 
   const PaintingProps = {
     title: <RichText render={painting_section_title?.raw} />,
@@ -96,10 +92,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
         uid,
         name: category_name,
         backgroundColor: category_background_color,
-        image: {
-          url: category_image?.url,
-          alt: category_image?.alt,
-        },
+        image: category_image,
         link: category_link?.url,
       };
     }),
@@ -116,10 +109,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     trends: trends?.map((trend: any) => ({
       name: trend?.trend_name,
       color: trend?.trend_color,
-      image: {
-        url: trend?.trend_image?.url,
-        alt: trend?.trend_image?.alt,
-      },
+      image: trend?.trend_image,
     })),
   };
 
@@ -128,10 +118,7 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
     list: why_section_list?.map((item: any) => ({
       item: <RichText render={item?.list_item?.raw} />,
     })),
-    sideImage: {
-      url: why_section_side_image?.url,
-      alt: why_section_side_image?.alt,
-    },
+    sideImage: why_section_side_image,
   };
 
   const PartnersProps = {
@@ -146,19 +133,10 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
   const TeamProps = {
     title: <RichText render={team_section_title?.raw} />,
     text: <RichText render={team_section_text?.raw} />,
-    image: {
-      url: team_section_side_image?.url,
-      alt: team_section_side_image?.alt,
-    },
+    image: team_section_side_image,
     members: team_members?.map((member: any) => ({
-      image_1: {
-        url: member?.image_1?.url,
-        alt: member?.image_1?.alt,
-      },
-      image_2: {
-        url: member?.image_2?.url,
-        alt: member?.image_2?.alt,
-      },
+      image_1: member?.image_1,
+      image_2: member?.image_2,
       role: <RichText render={member?.role?.raw} />,
       name: <RichText render={member?.name?.raw} />,
       description: <RichText render={member?.description?.raw} />,
@@ -171,10 +149,8 @@ const HomeContainer = ({ data }: Props): JSX.Element => {
 
   const QuestionProps = {
     background: {
-      backgroundUrl: question_background?.url,
-      backgroundAlt: question_background?.alt,
-      mobileUrl: question_mobile_background?.url,
-      mobileAlt: question_mobile_background?.alt,
+      desktop: question_background,
+      mobile: question_mobile_background,
     },
     title: <RichText render={question_section_title?.raw} />,
     text: <RichText render={question_section_text?.raw} />,

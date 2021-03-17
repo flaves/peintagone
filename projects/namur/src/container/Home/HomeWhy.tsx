@@ -1,13 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Grid from '@/components/atoms/Layout/Grid';
-import Img from '@/components/atoms/Img';
 import Typography from '@/components/atoms/Typography';
 
-import { ImageType } from '@/types/image';
 import mq from '@/styles/mq';
+
+import { ImageType } from '@/types/image';
 
 interface ListItemProps {
   item?: React.ReactNode;
@@ -17,10 +18,10 @@ interface ListItemProps {
 interface Props {
   title?: React.ReactNode;
   list?: ListItemProps[];
-  sideImage?: ImageType;
+  sideImage?: ImageType | null | undefined;
 }
 
-const Root = styled(Grid)<Props>`
+const Root = styled(Grid)`
   margin-top: ${({ theme }) => theme.spacing(10)};
   align-items: stretch;
 `;
@@ -95,17 +96,9 @@ const ListItemText = styled(Typography)`
     text-align: left;
   }
 `;
-const GridImage = styled(Grid)`
-  padding-top: 50%;
-  position: relative;
-`;
-const SideImage = styled(Img)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+const GridImage = styled(Grid)``;
+const SideImage = styled(Image)`
+  max-height: 800px;
 `;
 
 const ListItem = ({ index, item }: ListItemProps): JSX.Element => {
@@ -129,11 +122,7 @@ const HomeWhy = ({ title, list, sideImage }: Props): JSX.Element => {
         <ListContainer>{List}</ListContainer>
       </GridText>
       <GridImage xxs={12} md={6}>
-        <SideImage
-          src={sideImage?.url}
-          alt={sideImage?.alt}
-          sizes="(min-width: 980px) 50vw, 100vw"
-        />
+        <SideImage fluid={sideImage?.fluid as FluidObject} />
       </GridImage>
     </Root>
   );
@@ -150,8 +139,9 @@ export const query = graphql`
       }
     }
     why_section_side_image {
-      url
-      alt
+      fluid {
+        ...GatsbyPrismicImageFluid
+      }
     }
   }
 `;

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { css, useTheme } from '@emotion/react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Container from '@/components/atoms/Layout/Container';
 import Typography from '@/components/atoms/Typography';
 import Grid from '@/components/atoms/Layout/Grid';
-import Img from '@/components/atoms/Img';
 import Button from '@/components/atoms/Button';
+import Link from '@/components/atoms/Link';
 
 import {
   renderCategoryBackgroundDesktop,
@@ -17,8 +19,6 @@ import renderCategoriesButtons from '@/utils/categories/renderCategoriesButtons'
 import mq from '@/styles/mq';
 
 import { ImageType } from '@/types/image';
-import Link from '@/components/atoms/Link';
-import { css, useTheme } from '@emotion/react';
 
 export type CategoryUid = 'wall' | 'wood' | 'natural' | 'metal' | 'ground';
 
@@ -31,7 +31,7 @@ export interface CategoryProps {
   id?: string;
   name?: string;
   backgroundColor?: string;
-  image?: ImageType;
+  image?: ImageType | undefined | null;
   link?: string;
 }
 
@@ -132,7 +132,7 @@ const ImageGrid = styled(Grid)`
     margin-top: 0;
   }
 `;
-const CategoryImage = styled(Img)`
+const CategoryImage = styled(Image)`
   width: 150px;
   margin-left: auto;
   margin-right: auto;
@@ -190,11 +190,7 @@ const Category = ({
   return (
     <>
       <ImageGrid container md={8} xxs={12}>
-        <CategoryImage
-          src={image?.url}
-          alt={image?.alt}
-          sizes="(min-width: 1240px) 250px, 150px"
-        />
+        <CategoryImage fluid={image?.fluid as FluidObject} />
         <ButtonContainer container justifyContent="center">
           <ButtonStyled
             as={Link}

@@ -1,25 +1,26 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import Image, { FluidObject } from 'gatsby-image';
 
 import Grid from '@/components/atoms/Layout/Grid';
 import Typography from '@/components/atoms/Typography';
-import Img from '@/components/atoms/Img';
 
 import mq from '@/styles/mq';
 
 import BlueArrow from '@/svg/BlueArrow.svg';
 import Pentagon from '@/svg/Pentagon.svg';
 
-import { ImageType } from '@/types/image';
 import { faArrowDown } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { ImageType } from '@/types/image';
 
 interface Props {
   title?: React.ReactNode;
   text?: React.ReactNode;
   textMobile?: React.ReactNode;
-  image?: ImageType;
+  image?: ImageType | null | undefined;
 }
 
 const Root = styled.div`
@@ -131,7 +132,7 @@ const ImageContainer = styled(Grid)`
 
   ${mq('md')} {
     height: 480px;
-    max-width: 450px;
+    width: 450px;
     position: absolute;
     top: -55%;
     right: -5%;
@@ -140,14 +141,14 @@ const ImageContainer = styled(Grid)`
   ${mq('lg')} {
     top: -25%;
     height: 760px;
-    max-width: 650px;
+    width: 650px;
   }
 
   ${mq('xxl')} {
     height: 600px;
   }
 `;
-const HeroImage = styled(Img)`
+const HeroImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -192,11 +193,7 @@ const HomeHero = ({ title, text, textMobile, image }: Props): JSX.Element => {
           <PentagonStyled />
           {image && (
             <ImageContainer>
-              <HeroImage
-                src={image?.url}
-                alt={image?.alt}
-                sizes="(min-width: 980px) 40vw, 100vw"
-              />
+              <HeroImage fluid={image?.fluid as FluidObject} />
             </ImageContainer>
           )}
         </ImageGrid>
@@ -220,8 +217,9 @@ export const query = graphql`
       raw
     }
     hero_image {
-      url
-      alt
+      fluid {
+        ...GatsbyPrismicImageFluid
+      }
     }
   }
 `;

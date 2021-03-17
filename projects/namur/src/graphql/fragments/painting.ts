@@ -9,8 +9,9 @@ export const PaintingFragment = graphql`
       category_background_color
       category_name
       category_image {
-        alt
-        url
+        fluid {
+          ...GatsbyPrismicImageFluid
+        }
       }
       category_link {
         url
