@@ -63,10 +63,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        head: true,
-        trackingId: `G-JFBFJGHXL5`,
+        trackingIds: ['G-JFBFJGHXL5'],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     {
