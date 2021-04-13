@@ -28,7 +28,6 @@ const Root = styled(Container)<Props>`
   z-index: ${({ theme }) => theme.zIndex.content};
   margin-top: ${({ theme }) => theme.spacing(5)};
   text-align: center;
-  display: none;
 
   ${mq('lg')} {
     margin-top: ${({ theme }) => theme.spacing(10)};
