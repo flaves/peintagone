@@ -77,5 +77,8 @@
   },
   "bugs": {
     "url": "https://github.com/flaves/gatsby-starter-flaves/issues"
-  }
+  },
+  "resolutions": {
+    "sharp": "0.28.1"
+  },
 }
