@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { v4 } from 'uuid';
 import styled from '@emotion/styled';
 import ReactAliceCarousel from 'react-alice-carousel';
@@ -52,36 +52,53 @@ interface Props {
 }
 
 const CategoryList = ({ data }: Props) => {
-  const types = data.prismicProductCategory?.data?.product_types?.map(
-    (product_type) => ({
-      name: product_type?.product_type?.document?.data?.type_name,
-      images: product_type?.product_type?.document?.data?.type_images?.map(
-        (image) => ({
-          // @ts-ignore
-          fluid: image?.type_image?.fluid,
-        }),
-      ),
-    }),
+  const [isHovered, setIsHovered] = useState<string[]>([]);
+
+  const types = useMemo(
+    () =>
+      data.prismicProductCategory?.data?.product_types?.map((product_type) => ({
+        id: v4(),
+        name: product_type?.product_type?.document?.data?.type_name,
+        images: product_type?.product_type?.document?.data?.type_images?.map(
+          (image) => ({
+            // @ts-ignore
+            fluid: image?.type_image?.fluid,
+          }),
+        ),
+      })),
+    [],
   );
+
+  console.log(isHovered);
 
   const renderTypes = () => (
     <List container>
-      {types?.map((type) => (
-        <Item key={v4()}>
-          <ReactAliceCarousel
-            disableButtonsControls
-            disableDotsControls
-            infinite
-            autoPlay={type?.images?.length ? type?.images?.length > 1 : false}
-            autoPlayInterval={1500}
-          >
-            {type?.images?.map((image) => (
-              <TypeImg fluid={image?.fluid as FluidObject} />
-            ))}
-          </ReactAliceCarousel>
-          <TypeText>{type?.name}</TypeText>
-        </Item>
-      ))}
+      {types?.map((type) => {
+        const isCarouselActive = isHovered.includes(type.id);
+
+        return (
+          <Item key={type.id}>
+            <div
+              onMouseEnter={() => setIsHovered([type.id])}
+              onMouseLeave={() => setIsHovered([])}
+            >
+              <ReactAliceCarousel
+                disableButtonsControls
+                disableDotsControls
+                infinite
+                autoPlay
+                autoPlayStrategy="none"
+                autoPlayInterval={isCarouselActive ? 1500 : 999999999}
+              >
+                {type?.images?.map((image) => (
+                  <TypeImg fluid={image?.fluid as FluidObject} />
+                ))}
+              </ReactAliceCarousel>
+              <TypeText>{type?.name}</TypeText>
+            </div>
+          </Item>
+        );
+      })}
     </List>
   );
 
