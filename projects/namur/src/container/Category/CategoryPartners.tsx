@@ -42,7 +42,7 @@ const CategoryPartners = ({ data }: Props) => {
       infinite
       responsive={{ 0: { items: 4 } }}
       disableButtonsControls
-      autoPlay={partners ? partners.length > 1 : false}
+      autoPlay={partners ? partners.length >= 4 : false}
       autoPlayInterval={2500}
     >
       {data.prismicProductCategory?.data?.category_partners?.map((partner) => (
